@@ -7,8 +7,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@500;700&family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f2ede4;--ink:#17201b;--mut:#6a665c;--card:#faf6ee;--line:#d8d0be;--soft:#e8e1d2;--g:#0b4a37;--g2:#0b4a37;--r:#e63a2e;--acc:#0b4a37;--serif:"Noto Serif Bengali","Noto Sans Bengali",Georgia,serif;--sans:"Noto Sans Bengali","Hind Siliguri",system-ui,sans-serif;color-scheme:light}
+:root{--bg:#f2ede4;--ink:#17201b;--mut:#6a665c;--card:#faf6ee;--line:#d8d0be;--soft:#e8e1d2;--g:#0b4a37;--g2:#0b4a37;--r:#e63a2e;--acc:#0b4a37;--serif:"Noto Serif Bengali","Noto Sans Bengali",Georgia,serif;--sans:"Noto Sans Bengali","Hind Siliguri",system-ui,sans-serif;--mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;color-scheme:light}
 :root[data-theme=dark]{--bg:#101611;--ink:#efe9dc;--mut:#a29d90;--card:#18201a;--line:#2d382f;--soft:#1e2820;--acc:#9fd9b5;--g:#9fd9b5;color-scheme:dark}
+:root[data-theme=sepia]{--bg:#efe6d3;--ink:#2a2016;--mut:#7a6c58;--card:#f7efdf;--line:#d9cbae;--soft:#e7dcc4;--r:#b4452f;--acc:#6b4e2e;--g:#6b4e2e;color-scheme:light}
+:root[data-theme=slate]{--bg:#e9edf1;--ink:#1c2530;--mut:#5d6a78;--card:#f6f8fa;--line:#ccd5de;--soft:#dfe6ed;--r:#c22a35;--acc:#1d3a5f;--g:#1d3a5f;color-scheme:light}
+:root[data-theme=paper]{--bg:#fbf9f4;--ink:#161514;--mut:#75706a;--card:#ffffff;--line:#e3ded4;--soft:#f1ece2;--r:#c8371f;--acc:#0a3f2d;--g:#0a3f2d;color-scheme:light}
+:root[data-theme=midnight]{--bg:#0d1420;--ink:#e8edf4;--mut:#8e9bb0;--card:#131c2b;--line:#26334a;--soft:#1a2536;--r:#ff5147;--acc:#8fb7ff;--g:#8fb7ff;color-scheme:dark}
+:root[data-theme=sage]{--bg:#edf0e6;--ink:#1f2a1d;--mut:#61705c;--card:#f7f9f0;--line:#d3dcc6;--soft:#e2e8d6;--r:#a8352b;--acc:#2f5233;--g:#2f5233;color-scheme:light}
+:root[data-theme=noir]{--bg:#060607;--ink:#f4f2ec;--mut:#9b988f;--card:#101012;--line:#26262a;--soft:#171719;--r:#ff2f23;--acc:#f4f2ec;--g:#f4f2ec;color-scheme:dark}
+:root[data-theme=ivory]{--bg:#f7f3e8;--ink:#2b2620;--mut:#776f60;--card:#fffdf7;--line:#e2d9c3;--soft:#efe8d6;--r:#a3322a;--acc:#39513a;--g:#39513a;color-scheme:light}
 *{box-sizing:border-box;min-width:0}html{scroll-behavior:smooth;scroll-padding-top:88px;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 body{margin:0;background:var(--bg);color:var(--ink);font:17.5px/1.85 var(--sans);transition:background .3s,color .3s;overflow-x:hidden}
 a{color:inherit}img,svg{max-width:100%}::selection{background:var(--r);color:#fff}
@@ -111,6 +118,7 @@ table{border-collapse:collapse;width:100%;min-width:620px;font-size:15.5px}th,td
 .quiz-cats button{font:600 13.5px var(--sans);padding:6px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;transition:.2s}
 .quiz-cats button.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 #score{background:var(--ink);color:var(--bg);border-radius:999px;padding:7px 20px;font-weight:600}
+.prog-pill{background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:6px 15px;font:600 13px var(--sans);color:var(--mut)}
 .q-search{padding:9px 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:15px var(--sans);min-width:240px;max-width:100%}.q-search:focus{border-color:var(--ink);outline:0}
 .qz{padding:24px;margin-bottom:14px}.qz p{margin:0 0 10px;font-weight:600}
 .qz button{display:block;width:100%;text-align:left;margin:7px 0;padding:11px 16px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:500 16px var(--sans);cursor:pointer;transition:.2s}
@@ -127,7 +135,19 @@ table{border-collapse:collapse;width:100%;min-width:620px;font-size:15.5px}th,td
 #backToTop.show{opacity:1;pointer-events:auto}
 #backToTop:hover{transform:translateY(-4px)}
 
-footer{padding:50px 0 60px;color:var(--mut);font-size:14.5px;text-align:center;border-top:1px solid var(--line)}footer q{display:block;font:500 clamp(19px,2.6vw,28px)/1.7 var(--serif);color:var(--ink);margin-bottom:18px}
+footer{padding:clamp(44px,7vw,86px) 0 46px;color:var(--mut);font-size:14.5px;border-top:1px solid var(--line)}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(28px,5vw,80px);align-items:start}
+.foot-eyebrow{display:flex;align-items:center;gap:10px;font:600 10.5px/1.5 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--r);margin-bottom:16px}
+.foot-eyebrow .bn{font:600 12px/1.5 var(--sans);letter-spacing:0;color:var(--mut)}
+.foot-desc{margin:0;max-width:46ch;font-size:15px;line-height:1.85;color:var(--mut)}
+.foot-desc kbd{font:600 11px/1 var(--mono);color:var(--ink);background:var(--card);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:3px 6px;margin:0 2px;display:inline-block;vertical-align:1px}
+.foot-quote{margin:0;font:500 clamp(16px,1.7vw,21px)/1.75 var(--serif);color:var(--ink);max-width:36ch}
+.foot-quote cite{display:block;margin-top:14px;font:500 12px/1.6 var(--sans);letter-spacing:.01em;color:var(--mut);font-style:normal}
+.foot-meta{display:flex;flex-wrap:wrap;align-items:center;margin-top:clamp(30px,4.5vw,48px);padding-top:18px;border-top:1px solid var(--line);font:500 10.5px/1.9 var(--mono);letter-spacing:.15em;text-transform:uppercase;color:var(--mut)}
+.foot-meta i{font-style:normal;margin:0 13px;color:var(--r);opacity:.7}
+.foot-meta b{color:var(--ink);font-weight:700}
+@media(max-width:860px){.foot-grid{grid-template-columns:1fr;gap:30px}.foot-quote{border-top:1px solid var(--line);padding-top:22px;max-width:100%}}
+@media(max-width:560px){.foot-meta{font-size:9.5px;letter-spacing:.09em}.foot-meta i{margin:0 7px}.foot-desc{font-size:14.5px}}
 .rv{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
 @media(max-width:860px){.hero{grid-template-columns:1fr}.flag{max-width:240px;order:-1}.three,.two,.det,.mapbox{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.quiz-bar{top:62px}.global-search{width:150px}.global-search:focus{width:180px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
@@ -185,7 +205,7 @@ footer{padding:50px 0 60px;color:var(--mut);font-size:14.5px;text-align:center;b
     <a href="#quiz">প্রশ্নোত্তর</a>
   </div>
   <button class="theme-btn" id="menuBtn" aria-expanded="false" aria-controls="menuLinks">☰ মেনু</button>
-  <button class="theme-btn" id="themeBtn" aria-label="রঙ পরিবর্তন">🌓 থিম</button>
+  <button class="theme-btn" id="themeBtn" aria-label="রঙ পরিবর্তন" title="ক্লিকে লাইট/ডার্ক · E চেপে ৯টি মুড">🌓 থিম</button>
 </nav></div></header>
 
 <main id="top">
@@ -1053,6 +1073,7 @@ footer{padding:50px 0 60px;color:var(--mut);font-size:14.5px;text-align:center;b
         <span class="fc-hint" id="fcCount">কার্ড ১ / ১৫</span>
         <div class="fc-q" id="fcQuestion">প্রশ্ন লোড হচ্ছে...</div>
         <small style="margin-top:16px;color:var(--mut)">(উত্তর দেখতে কার্ডে ক্লিক করুন)</small>
+        <small id="fcSeen" style="margin-top:6px;color:var(--mut);font-size:12.5px"></small>
       </div>
       <div class="fc-face fc-back">
         <span class="fc-hint" style="color:#9fd9b5">সঠিক উত্তর</span>
@@ -1063,6 +1084,7 @@ footer{padding:50px 0 60px;color:var(--mut);font-size:14.5px;text-align:center;b
       <button class="btn ghost" id="prevFc">← পূর্ববর্তী</button>
       <button class="btn red" id="flipFc">উল্টে দেখুন</button>
       <button class="btn ghost" id="nextFc">পরবর্তী →</button>
+      <button class="btn ghost" id="saveFc" title="এই কার্ডের অগ্রগতি এই ব্রাউজারেই সংরক্ষিত থাকবে">💾 অগ্রগতি সংরক্ষণ</button>
     </div>
   </div>
 </div></section>
@@ -1094,6 +1116,7 @@ footer{padding:50px 0 60px;color:var(--mut);font-size:14.5px;text-align:center;b
   <div class="quiz-bar">
     <div style="display:flex;gap:10px;align-items:center">
       <div id="score">স্কোর: ০ / ০</div>
+      <span class="prog-pill" id="progPill" title="এই ব্রাউজারে সংরক্ষিত অগ্রগতি">💾 অগ্রগতি: ০</span>
       <button class="theme-btn" id="resetQuiz" style="margin:0">↻ রিসেট</button>
     </div>
     <input type="search" class="q-search" id="qSearch" placeholder="প্রশ্ন খুঁজুন (যেমন: ভাষা, বেতার, সেক্টর)...">
@@ -1105,12 +1128,47 @@ footer{padding:50px 0 60px;color:var(--mut);font-size:14.5px;text-align:center;b
 
 <footer>
   <div class="wrap">
-    <q>“এবারের সংগ্রাম আমাদের মুক্তির সংগ্রাম, এবারের সংগ্রাম স্বাধীনতার সংগ্রাম।”</q>
-    <p>ডিজিটাল ইতিহাস আর্কাইভ — ভাষা আন্দোলন ও মহান মুক্তিযুদ্ধ (১৯৪৭–১৯৭১)</p>
+    <div class="foot-grid">
+      <div class="foot-main">
+        <div class="foot-eyebrow">The Archive · Edition 02 <span class="bn">— নয়টি রঙের মুড</span></div>
+        <p class="foot-desc">ডিজিটাল ইতিহাস আর্কাইভ — ভাষা আন্দোলন ও মহান মুক্তিযুদ্ধ (১৯৪৭–১৯৭১)। একই আর্কাইভ, নয়টি ভিজ্যুয়াল মুড: রঙ বদলাতে <kbd>E</kbd> চাপুন। আপনার প্রস্তুতির তথ্য শুধু এই ব্রাউজারেই থাকে।</p>
+      </div>
+      <div class="foot-side">
+        <blockquote class="foot-quote">“এবারের সংগ্রাম আমাদের মুক্তির সংগ্রাম, এবারের সংগ্রাম স্বাধীনতার সংগ্রাম।”<cite>— শেখ মুজিবুর রহমান, ৭ মার্চ ১৯৭১</cite></blockquote>
+      </div>
+    </div>
+    <div class="foot-meta" id="footerCredit">
+      <span>Prepared by <b>Rifat</b></span><i>·</i><span>Revision data stays in this browser</span><i>·</i><span>No accounts, no tracking</span>
+    </div>
   </div>
 </footer>
 
 <button id="backToTop" aria-label="উপরে ফিরে যান" title="উপরে যান">↑</button>
+
+<script>
+// ০. লোকাল প্রগ্রেস (এই ব্রাউজারেই সংরক্ষিত — কোনো সার্ভার/ট্র্যাকিং নেই)
+(function(){
+  var KEY = "muktijuddho-progress-v1", state = {};
+  try{ state = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; }catch(e){ state = {}; }
+  if(!state.answers) state.answers = {};
+  window.MP = {
+    answered: function(id, chosen){
+      state.answers[id] = chosen;
+      try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+    },
+    answers: function(){ return state.answers; },
+    reset: function(){
+      state.answers = {};
+      try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+    },
+    okCount: function(){
+      var n = 0;
+      for(var k in state.answers){ if(state.answers[k] >= 0) n++; }
+      return n;
+    }
+  };
+})();
+</script>
 
 <script>
 // ১. রিডিং প্রোগ্রেস বার ও ব্যাক টু টপ বাটন
@@ -1128,19 +1186,37 @@ footer{padding:50px 0 60px;color:var(--mut);font-size:14.5px;text-align:center;b
   btt.onclick = function(){ window.scrollTo({top: 0, behavior: "smooth"}); };
 })();
 
-// ২. থিম পরিবর্তন (লাইট / ডার্ক মোড)
+// ২. থিম পরিবর্তন — ক্লিকে লাইট/ডার্ক, E চেপে ৯টি রঙের মুড
 (function(){
   var btn = document.getElementById("themeBtn");
   var root = document.documentElement;
-  btn.onclick = function(){
-    var isDark = root.getAttribute("data-theme") === "dark";
-    var next = isDark ? "light" : "dark";
-    var apply = function(){ root.setAttribute("data-theme", next); };
+  var MODES = ["light","dark","sepia","slate","paper","midnight","sage","noir","ivory"];
+  // পছন্দের থিম এই ব্রাউজারেই সংরক্ষিত থাকে
+  try{
+    var t = localStorage.getItem("muktijuddho-theme");
+    if(MODES.indexOf(t) > -1) root.setAttribute("data-theme", t);
+  }catch(e){}
+  var saveTheme = function(v){ try{ localStorage.setItem("muktijuddho-theme", v); }catch(e){} };
+  function setTheme(next){
+    var apply = function(){ root.setAttribute("data-theme", next); saveTheme(next); };
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { apply(); return; }
     if (document.startViewTransition) { document.startViewTransition(apply); return; }
     root.classList.add("theme-anim"); apply();
     setTimeout(function(){ root.classList.remove("theme-anim"); }, 700);
+  }
+  btn.onclick = function(){
+    var cur = root.getAttribute("data-theme") || "light";
+    setTheme((cur === "dark" || cur === "noir" || cur === "midnight") ? "light" : "dark");
   };
+  document.addEventListener("keydown", function(e){
+    if(e.key !== "e" && e.key !== "E") return;
+    if(e.ctrlKey || e.metaKey || e.altKey) return;
+    var tg = e.target;
+    if(tg && (tg.tagName === "INPUT" || tg.tagName === "TEXTAREA" || tg.tagName === "SELECT" || tg.isContentEditable)) return;
+    var cur = root.getAttribute("data-theme") || "light";
+    var i = MODES.indexOf(cur);
+    setTheme(MODES[(i + 1) % MODES.length]); // E
+  });
 })();
 
 // ৩. আজকের দিনে ইতিহাস (On This Day)
@@ -1239,6 +1315,7 @@ footer{padding:50px 0 60px;color:var(--mut);font-size:14.5px;text-align:center;b
     ["মুক্তিযুদ্ধের সময় ঢাকা শহর কত নম্বর সেক্টরের অধীনে ছিল?", "২ নম্বর সেক্টরের অধীনে (সেক্টর কমান্ডার: মেজর খালেদ মোশাররফ ও পরে মেজর এ. টি. এম. হায়দার)।"]
   ];
   var idx = 0, dn = "০১২৩৪৫৬৭৮৯";
+  window.FC_COUNT = cards.length;
   function bn(n){ return String(n).replace(/\d/g, function(d){ return dn[d]; }); }
   var fcEl = document.getElementById("flashcard");
   function renderCard(){
@@ -1250,6 +1327,23 @@ footer{padding:50px 0 60px;color:var(--mut);font-size:14.5px;text-align:center;b
   fcEl.onclick = function(){ fcEl.classList.toggle("flipped"); };
   document.getElementById("flipFc").onclick = function(){ fcEl.classList.toggle("flipped"); };
   document.getElementById("prevFc").onclick = function(){ idx = (idx - 1 + cards.length) % cards.length; renderCard(); };
+  // ফ্ল্যাশকার্ড অগ্রগতি এই ব্রাউজারেই সংরক্ষিত হয়
+  var FKEY = "muktijuddho-flash-seen-v1", seen = {};
+  try{ seen = JSON.parse(localStorage.getItem(FKEY)||"{}")||{}; }catch(e){ seen={}; }
+  var seenEl = document.getElementById("fcSeen");
+  function paintSeen(){
+    var n=0; for(var k in seen){ if(seen[k]) n++; }
+    if(seenEl) seenEl.textContent="সংরক্ষিত কার্ড: "+bn(n)+" / "+bn(cards.length);
+  }
+  var saveBtn = document.getElementById("saveFc");
+  if(saveBtn) saveBtn.onclick = function(){
+    seen[idx]=1;
+    try{ localStorage.setItem(FKEY, JSON.stringify(seen)); }catch(e){}
+    paintSeen();
+    saveBtn.textContent="✓ সংরক্ষিত হয়েছে";
+    setTimeout(function(){ saveBtn.textContent="💾 অগ্রগতি সংরক্ষণ"; }, 1600);
+  };
+  paintSeen();
   document.getElementById("nextFc").onclick = function(){ idx = (idx + 1) % cards.length; renderCard(); };
   renderCard();
 })();
@@ -1411,12 +1505,23 @@ var Q=[
 
 var sc=0,qs=document.getElementById("qs"),dn="০১২৩৪৫৬৭৮৯",currentCat="all";
 function bn(n){return String(n).replace(/\d/g,function(d){return dn[d]})}
-function updateScore(){document.getElementById("score").textContent="স্কোর: "+bn(sc)+" / "+bn(Q.length)}
+function updateScore(){
+  document.getElementById("score").textContent="স্কোর: "+bn(sc)+" / "+bn(Q.length);
+  var pill=document.getElementById("progPill");
+  if(pill && window.MP){
+    var n=MP.okCount();
+    pill.textContent="💾 অগ্রগতি: "+bn(n);
+    pill.title="এই ব্রাউজারে সংরক্ষিত উত্তর: "+bn(n)+"টি";
+  }
+}
 
 function renderQuiz(){
   qs.innerHTML="";
   sc=0;
   updateScore();
+  // পূর্বে সংরক্ষিত উত্তর থাকলে এই ব্রাউজারেই ফিরিয়ে আনা হয়
+  var saved = {};
+  if(window.MP){ saved = MP.answers() || {}; }
   Q.forEach(function(q,i){
     var d=document.createElement("div"),p=document.createElement("p"),done=0;
     d.className="qz";
@@ -1435,18 +1540,28 @@ function renderQuiz(){
         done=1;
         if(j==q[2]){
           b.className="ok";sc++;
-          updateScore();
         }else{
           b.className="no";d.children[q[2]+1].className="ok";
         }
+        if(window.MP) MP.answered(i, j);
+        updateScore();
         exp.style.display="block";
       };
       d.appendChild(b);
     });
     d.appendChild(exp);
+    // আগে উত্তর দেওয়া থাকলে সেটিও পুনরুদ্ধার
+    if(saved[i]!==undefined){
+      done=1;
+      if(saved[i]==q[2]){ sc++; }
+      else if(saved[i]>=0){ d.children[saved[i]+1].className="no"; }
+      d.children[q[2]+1].className="ok";
+      exp.style.display="block";
+    }
     qs.appendChild(d);
   });
   filterQuiz();
+  updateScore();
 }
 
 function filterQuiz(){
@@ -1459,7 +1574,8 @@ function filterQuiz(){
 }
 
 document.getElementById("qSearch").oninput=filterQuiz;
-document.getElementById("resetQuiz").onclick=renderQuiz;
+document.getElementById("resetQuiz").onclick=function(){ if(window.MP) MP.reset(); renderQuiz(); };
+
 document.querySelectorAll("#quizCats button").forEach(function(btn){
   btn.onclick=function(){
     document.querySelectorAll("#quizCats button").forEach(function(b){b.classList.remove("active")});
@@ -1471,8 +1587,8 @@ document.querySelectorAll("#quizCats button").forEach(function(btn){
 renderQuiz();
 </script>
 
-<script>(function(){var n=document.querySelector('nav'),mb=document.getElementById('menuBtn');mb.addEventListener('click',function(){var o=n.classList.toggle('open');mb.setAttribute('aria-expanded',o);mb.textContent=o?'✕ বন্ধ':'☰ মেনু'});n.querySelectorAll('.links a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');mb.setAttribute('aria-expanded',false);mb.textContent='☰ মেনু'})});})();(function(){var els=document.querySelectorAll("section h2,section .lead,.box,.det,.tl,.scroll,.mapbox,.stats,.cta,.qz,.doc-box,.flashcard-wrap");els.forEach(function(e){e.classList.add("rv")});
+<script>(function(){var n=document.querySelector('nav'),mb=document.getElementById('menuBtn');mb.addEventListener('click',function(){var o=n.classList.toggle('open');mb.setAttribute('aria-expanded',o);mb.textContent=o?'✕ বন্ধ':'☰ মেনু'});n.querySelectorAll('.links a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');mb.setAttribute('aria-expanded',false);mb.textContent='☰ মেনু'})});})();(function(){var els=document.querySelectorAll("section h2,section .lead,.box,.det,.tl,.scroll,.mapbox,.stats,.cta,.qz,.doc-box,.flashcard-wrap,#footerCredit");els.forEach(function(e){e.classList.add("rv")});
 if(!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("in")});return}
 var io=new IntersectionObserver(function(a){a.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{rootMargin:"0px 0px -6% 0px"});els.forEach(function(e){io.observe(e)})})();</script><script>(function(){var d=document.getElementById("timeline");function o(){if(location.hash==="#timeline"){d.open=true;setTimeout(function(){d.scrollIntoView()},30)}}window.addEventListener("hashchange",o);o()})();</script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a601ed45ab234e14',t:'MTc5NTYyMzA2MQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a601ed45ab234e14',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
