@@ -112,7 +112,20 @@ table{border-collapse:collapse;width:100%;min-width:620px;font-size:15.5px}th,td
 .mapbox svg{width:100%;height:auto;background:var(--soft);border-radius:22px}
 .mapbox polygon{fill:#0b4a37;stroke:var(--bg);stroke-width:2.5;cursor:pointer;opacity:.85;transition:fill .2s}.mapbox polygon:nth-of-type(even){opacity:1}.mapbox polygon:hover,.mapbox polygon.on{fill:var(--r);opacity:1}
 .mapbox text{fill:#fff;font:700 17px var(--sans);pointer-events:none;text-anchor:middle}.mapbox .coast{fill:none;stroke:var(--r);stroke-width:3;stroke-dasharray:7 5}
-.sinfo{padding:28px}.sinfo h3{margin:0 0 8px;font-size:26px}.sinfo p{margin:0 0 8px}.note{font-size:13.5px;color:var(--mut)}
+.sinfo{padding:28px}.sinfo h3{margin:0 0 8px;font-size:26px}.sinfo p{margin:0 0 8px}.note{font-size:13.5px;color:var(--mut)}.sinfo .smeta{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 12px}.sinfo .smeta>div{background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:10px 14px}.sinfo .smeta small{display:block;font-size:12px;color:var(--mut);letter-spacing:.02em}.sinfo .smeta b{font:600 15.5px/1.6 var(--sans)}.sinfo .sna{color:var(--mut);font-weight:600}.sinfo .scm{margin-bottom:0}
+.cmd-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:0 0 30px;padding:18px;background:var(--card);border:1px solid var(--line);border-radius:20px}
+.cmd-strip>div{padding:2px 10px;border-left:3px solid var(--r)}
+.cmd-strip>div:first-child{border-left:3px solid var(--g,#0b4a37)}
+.cmd-strip small{display:block;font-size:12px;letter-spacing:.04em;color:var(--mut)}
+.cmd-strip b{display:block;font:600 15px/1.65 var(--sans)}
+.sec-tbl td{vertical-align:top;font-size:14.5px;line-height:1.7}
+.sec-tbl td.sn{font:700 18px var(--serif);text-align:center;color:var(--r);width:44px}
+.sec-tbl td.ct{text-align:center;white-space:nowrap;font-weight:600;width:78px}
+.sec-tbl tr.tot td{background:var(--soft);font-weight:600;border-top:2px solid var(--ink)}
+.sec-tbl .sna{color:var(--mut);font-weight:500}
+.sec-h{font:700 22px var(--serif);margin:0 0 14px}
+@media (max-width:900px){.cmd-strip{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.cmd-strip{grid-template-columns:1fr}}
 
 /* কুইজ বার ও ক্যাটাগরি */
 .quiz-bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;position:sticky;top:62px;z-index:5;background:var(--bg);padding:12px 0;margin-bottom:16px;border-bottom:1px solid var(--line)}
@@ -259,6 +272,10 @@ nav .links a.active:hover{background:var(--ink);color:var(--bg)}
 .map-legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:12px;font-size:12px;color:var(--mut)}
 .map-legend span{display:inline-flex;align-items:center;gap:6px}
 .map-legend i{width:10px;height:10px;border-radius:3px;display:inline-block;flex:none}
+.sea-pick{margin-top:14px}
+.sea-btn{font:600 13.5px var(--sans);color:var(--r);background:var(--card);border:1.5px dashed var(--r);border-radius:999px;padding:8px 18px;cursor:pointer;transition:.2s}
+.sea-btn:hover,.sea-btn[aria-pressed=true]{background:var(--r);color:#fff;border-style:solid}
+.sea-pick small{display:block;margin-top:6px;font-size:11.5px;color:var(--mut)}
 #map path{cursor:pointer;transition:fill .2s,opacity .2s}
 #map path:hover{opacity:.82}
 #map path[aria-pressed=true]{stroke:var(--ink);stroke-width:2.4}
@@ -493,7 +510,7 @@ nav .links a.active:hover{background:var(--ink);color:var(--bg)}
         <li><b>১৯৫২ সালের সংগ্রাম পরিষদ:</b> ২৬ জানুয়ারি খাজা নাজিমুদ্দীন উর্দুকে পাকিস্তানের একমাত্র রাষ্ট্রভাষা করার ঘোষণা পুনর্ব্যক্ত করেন। ৩১ জানুয়ারি মওলানা ভাসানীর সভাপতিত্বে 'সর্বদলীয় কেন্দ্রীয় রাষ্ট্রভাষা সংগ্রাম পরিষদ' গঠিত হয় (আহ্বায়ক: কাজী গোলাম মাহবুব)। সদস্যসংখ্যা নিয়ে বিভিন্ন সূত্রে মতভেদ থাকায় সংখ্যা উল্লেখ করা হয়নি।</li>
         <li><b>২১ ফেব্রুয়ারি ও আমতলার সভা:</b> ঢাকা বিশ্ববিদ্যালয়ের আমতলায় গাজীউল হকের সভাপতিত্বে ছাত্রসভায় ১৪৪ ধারা ভঙ্গের সিদ্ধান্ত হয়। মেডিকেল কলেজের কাছে পুলিশের গুলিতে রফিকউদ্দিন আহমদ (প্রথম শহিদ), আবুল বরকত, আবদুল জব্বার, আবদুস সালাম ও শিশু ওহিউল্লাহ শহিদ হন। আবদুস সালাম ৭ এপ্রিল হাসপাতালে মারা যান—এ তথ্যও কিছু বিবরণে উল্লেখিত।</li>
         <li><b>২২ ফেব্রুয়ারির শহিদ ও প্রতিবাদ:</b> শফিউর রহমান পুলিশের গুলিতে শহিদ হন। সমকালীন বিবরণে হাইকোর্ট/কার্জন হল এলাকায় আরও হতাহতের কথা আছে; আবদুল আউয়াল ও এক অজ্ঞাত বালকের পরিচয় কিছু সূত্রে পাওয়া যায়। বিভিন্ন তালিকায় নাম ও সংখ্যা ভিন্ন হওয়ায় এই তথ্যকে নির্দিষ্ট সরকারি শহিদ-তালিকা হিসেবে ধরা উচিত নয়।</li>
-        <li><b>সাংবিধানিক স্বীকৃতি:</b> ৭/৯ মে ১৯৫৪ গণপরিষদে গৃহীত এবং ১৯৫৬ সালের সংবিধানের ২১৪ নং অনুচ্ছেদে বাংলা রাষ্ট্রভাষার স্বীকৃতি পায়। ১৭ নভেম্বর ১৯৯৯ প্যারিসে ইউনেস্কোর ৩০তম সাধারণ অধিবেশনে ২১ ফেব্রুয়ারিকে আন্তর্জাতিক মাতৃভাষা দিবস হিসেবে পালনের প্রস্তাব গৃহীত হয়।</li>
+        <li><b>সাংবিধানিক স্বীকৃতি:</b> ৭/৯ মে ১৯৫৪ গণপরিষদে গৃহীত এবং ১৯৫৬ সালের সংবিধানের ২১৪ নং অনুচ্ছেদে বাংলা রাষ্ট্রভাষার স্বীকৃতি পায়। ১৭ নভেম্বর ১৯৯৯ প্যারিসে ইউনেস্কোর ৩০তম সাধারণ সম্মেলনে ২১ ফেব্রুয়ারিকে আন্তর্জাতিক মাতৃভাষা দিবস হিসেবে পালনের প্রস্তাব গৃহীত হয়।</li>
       </ul>
     </div>
     <div class="box rd">
@@ -962,29 +979,53 @@ nav .links a.active:hover{background:var(--ink);color:var(--bg)}
 
 <section id="sectors"><div class="wrap">
   <h2>মুক্তিযুদ্ধের ১১টি সেক্টর ও ৬৪টি সাব-সেক্টর</h2>
-  <p class="lead">১১ এপ্রিল ১৯৭১ মুজিবনগর সরকার যুদ্ধ পরিচালনার সুবিধার্থে দেশকে ১১টি সেক্টর ও ৬৪টি সাব-সেক্টরে ভাগ করে (জুলাই সম্মেলনে পূর্ণাঙ্গ রূপ পায়)।</p>
+  <p class="lead">১১ এপ্রিল ১৯৭১ মুজিবনগর সরকার যুদ্ধ পরিচালনার সুবিধার্থে দেশকে ১১টি সেক্টর ও ৬৪টি সাব-সেক্টরে ভাগ করে (১১–১৭ জুলাই কলকাতার সেক্টর কমান্ডার সম্মেলনে পূর্ণাঙ্গ রূপ পায়)। প্রতিটি সেক্টরের নিজস্ব সদরদপ্তর ও নির্দিষ্ট সংখ্যক সাব-সেক্টর ছিল—নিচের মানচিত্র, তালিকা ও কার্ডে সেসব তথ্য একসঙ্গে দেখুন।</p>
+
+  <div class="cmd-strip" role="list" aria-label="মুক্তিযুদ্ধের সর্বোচ্চ কমান্ড কাঠামো">
+    <div role="listitem"><small>সর্বাধিনায়ক</small><b>রাষ্ট্রপতি বঙ্গবন্ধু শেখ মুজিবুর রহমান</b></div>
+    <div role="listitem"><small>প্রধান সেনাপতি</small><b>কর্নেল (অব.) এম. এ. জি. ওসমানী</b></div>
+    <div role="listitem"><small>উপ-প্রধান সেনাপতি ও বিমান বাহিনী প্রধান</small><b>গ্রুপ ক্যাপ্টেন এ. কে. খন্দকার</b></div>
+    <div role="listitem"><small>সেনাবাহিনী প্রধান (চিফ অব স্টাফ)</small><b>লে. কর্নেল আবদুর রব</b></div>
+  </div>
+
   <div class="mapbox">
     <div>
       <svg id="map" viewBox="0 0 400 520" role="group" aria-label="সেক্টর অনুযায়ী বাংলাদেশের মানচিত্র"></svg>
       <div class="map-legend"><span><i style="background:#0b4a37"></i>১–৫ সীমান্ত সেক্টর</span><span><i style="background:#c9432f"></i>৬–৯ অভ্যন্তরীণ</span><span><i style="background:#8a6512"></i>১০ নৌ-সেক্টর (সমুদ্র ও নদীপথ — মানচিত্রে আলাদা এলাকা নেই)</span><span><i style="background:#1f7a55"></i>১১ উত্তর</span></div>
+      <div class="sea-pick"><button type="button" class="sea-btn" id="seaBtn">সেক্টর ১০ — নৌ-সেক্টর দেখুন →</button><small>সমুদ্র ও নদীপথ জুড়ে ছড়ানো, তাই মানচিত্রে আলাদা এলাকা নেই</small></div>
     </div>
     <div class="sinfo" id="sinfo" aria-live="polite"></div>
   </div>
-  <p class="note">মানচিত্রটি সেক্টরের অবস্থান বোঝানোর জন্য সরলীকৃত নকশা; সীমানা আনুমানিক। ডান পাশে কমান্ডার ও এলাকা দেখতে মানচিত্রের সেক্টরে ক্লিক বা ট্যাপ করুন। ১১টি সেক্টরের মধ্যে ১০ নম্বর ছিল নৌ-সেক্টর — সমুদ্র ও নদীপথ জুড়ে বিস্তৃত, তাই এখানে আলাদা এলাকা হিসেবে আঁকা হয়নি; নিচের তালিকা থেকে বেছে নিন।</p>
-  <div class="scroll"><table>
-    <tr><th>সেক্টর</th><th>এলাকা</th><th>কমান্ডার</th></tr>
-    <tr><td>১</td><td>ফেনী নদী থেকে চট্টগ্রাম, কক্সবাজার, পার্বত্য চট্টগ্রাম (রাঙামাটি) ও ফেনী</td><td>মেজর জিয়াউর রহমান (এপ্রিল–জুন); মেজর রফিকুল ইসলাম (জুন–ডিসেম্বর)</td></tr>
-    <tr><td>২</td><td>ঢাকা, কুমিল্লা, নোয়াখালী ও ফরিদপুরের অংশ</td><td>মেজর খালেদ মোশাররফ (এপ্রিল–সেপ্টেম্বর); মেজর এ. টি. এম. হায়দার (সেপ্টেম্বর–ডিসেম্বর)</td></tr>
-    <tr><td>৩</td><td>হবিগঞ্জ, কিশোরগঞ্জ, কুমিল্লা ও ঢাকার অংশ</td><td>মেজর কে. এম. শফিউল্লাহ (এপ্রিল–সেপ্টেম্বর); মেজর এ. এন. এম. নুরুজ্জামান (সেপ্টেম্বর–ডিসেম্বর)</td></tr>
-    <tr><td>৪</td><td>সিলেটের পূর্বাঞ্চল (খোয়াই–শায়েস্তাগঞ্জ রেললাইন থেকে পূর্ব-উত্তর)</td><td>মেজর সি. আর. দত্ত</td></tr>
-    <tr><td>৫</td><td>সিলেটের পশ্চিমাঞ্চল ও বৃহত্তর ময়মনসিংহের সীমান্তবর্তী অঞ্চল (সুনামগঞ্জ)</td><td>মেজর মীর শওকত আলী</td></tr>
-    <tr><td>৬</td><td>রংপুর ও দিনাজপুরের ঠাকুরগাঁও মহকুমা</td><td>উইং কমান্ডার এম. খাদেমুল বাশার</td></tr>
-    <tr><td>৭</td><td>দিনাজপুরের দক্ষিণাঞ্চল, রাজশাহী, নাটোর, পাবনা, বগুড়া ও রংপুরের অংশ</td><td>মেজর নাজমুল হক; পরে মেজর কাজী নুরুজ্জামান</td></tr>
-    <tr><td>৮</td><td>কুষ্টিয়া, যশোর, খুলনা ও ফরিদপুরের অংশ (মুজিবনগর এলাকা)</td><td>মেজর আবু ওসমান চৌধুরী (এপ্রিল–আগস্ট); মেজর এম. এ. মঞ্জুর (আগস্ট–ডিসেম্বর)</td></tr>
-    <tr><td>৯</td><td>বরিশাল, পটুয়াখালী ও খুলনার অংশ (সুন্দরবন ও সাতক্ষীরা)</td><td>মেজর এম. এ. জলিল (ডিসেম্বরের শুরু পর্যন্ত); পরে মেজর জয়নাল আবেদীন</td></tr>
-    <tr><td>১০</td><td>নৌ-কমান্ডো, সমুদ্র উপকূলীয় অঞ্চল ও অভ্যন্তরীণ নৌ-পরিবহন</td><td>নিয়মিত কমান্ডার ছিল না (ফ্রান্সে প্রশিক্ষণরত ৮ বাঙালি নৌ-কর্মকর্তার উদ্যোগে গঠিত; অভিযানকালে সংশ্লিষ্ট সেক্টর কমান্ডারের অধীনে)</td></tr>
-    <tr><td>১১</td><td>কিশোরগঞ্জ বাদে ময়মনসিংহ ও টাঙ্গাইল জেলা</td><td>মেজর জিয়াউর রহমান (২৬ জুন–১০ অক্টো); মেজর আবু তাহের (১০ অক্টো–২ নভে); ফ্লাইট লে. এম. হামিদুল্লাহ খান (২ নভে–১৪ ফেব্রু ১৯৭২)</td></tr>
-  </table></div>
+  <p class="note">মানচিত্রটি সেক্টরের অবস্থান বোঝানোর জন্য সরলীকৃত নকশা; সীমানা আনুমানিক। ডান পাশে সদরদপ্তর, সাব-সেক্টর ও কমান্ডার দেখতে মানচিত্রের সেক্টরে ক্লিক বা ট্যাপ করুন। ১১টি সেক্টরের মধ্যে ১০ নম্বর ছিল নৌ-সেক্টর — সমুদ্র ও নদীপথ জুড়ে বিস্তৃত, তাই এখানে আলাদা এলাকা হিসেবে আঁকা হয়নি; নিচের তালিকা বা ‘সেক্টর ১০’ বোতাম থেকে দেখে নিন।</p>
+
+  <div>
+    <div><h3 class="sec-h">সেক্টর-তালিকা: সীমানা, সদরদপ্তর ও কমান্ডার</h3>
+      <div class="scroll"><table class="sec-tbl">
+        <tr><th>সেক্টর</th><th>এলাকা</th><th>সদরদপ্তর</th><th>সাব-সেক্টর</th><th>কমান্ডার ও মেয়াদ</th></tr>
+        <tr><td class="sn">১</td><td>চট্টগ্রাম, পার্বত্য চট্টগ্রাম ও নোয়াখালীর মুহুরী নদীর পূর্বাংশ</td><td>হরিণা, ত্রিপুরা</td><td class="ct">৫টি</td><td>মেজর জিয়াউর রহমান (এপ্রিল–১০ জুন); মেজর রফিকুল ইসলাম (১১ জুন–১৬ ডিসে.)</td></tr>
+        <tr><td class="sn">২</td><td>ঢাকা শহর ও জেলার অংশ, নোয়াখালী, ফরিদপুর ও কুমিল্লার অংশবিশেষ</td><td>মেলাঘর, ত্রিপুরা</td><td class="ct">৬টি</td><td>মেজর খালেদ মোশাররফ (এপ্রিল–অক্টো.); মেজর এ. টি. এম. হায়দার (অক্টো.–১৬ ডিসে.)</td></tr>
+        <tr><td class="sn">৩</td><td>কুমিল্লা, কিশোরগঞ্জ, হবিগঞ্জ জেলার অংশবিশেষ ও ঢাকা জেলার উত্তরাঞ্চল</td><td>কলাগাছিয়া/হেজামারা, ত্রিপুরা</td><td class="ct">১০টি</td><td>মেজর কে. এম. শফিউল্লাহ (এপ্রিল–৩০ সেপ্টে.); মেজর এ. এন. এম. নুরুজ্জামান (১ অক্টো.–১৬ ডিসে.)</td></tr>
+        <tr><td class="sn">৪</td><td>মৌলভীবাজার ও সিলেট জেলার পূর্বাঞ্চল (খোয়াই–শায়েস্তাগঞ্জ রেললাইন থেকে পূর্ব-উত্তর)</td><td>করিমগঞ্জ/মাসিমপুর, আসাম</td><td class="ct">৬টি</td><td>মেজর সি. আর. দত্ত (মে–১৬ ডিসে.)</td></tr>
+        <tr><td class="sn">৫</td><td>সিলেট জেলার সমগ্র পশ্চিম অঞ্চল (তামাবিল–আজমিরীগঞ্জ অক্ষ) ও সুনামগঞ্জ</td><td>বাঁশতলা, সুনামগঞ্জ</td><td class="ct">৬টি</td><td>মেজর মীর শওকত আলী (আগস্ট–১৬ ডিসে.)</td></tr>
+        <tr><td class="sn">৬</td><td>বৃহত্তর রংপুর ও বৃহত্তর দিনাজপুর জেলার দক্ষিণাঞ্চলের কিছু অংশ বাদে বাকি অংশ</td><td>বুড়িমারী, লালমনিরহাট</td><td class="ct">৫টি</td><td>উইং কমান্ডার এম. খাদেমুল বাশার (জুন–১৬ ডিসে.)</td></tr>
+        <tr><td class="sn">৭</td><td>রাজশাহী, পাবনা, বগুড়া ও দিনাজপুর জেলার দক্ষিণাংশ</td><td>তারাঙ্গাপুর, পশ্চিমবঙ্গ</td><td class="ct">৬টি</td><td>মেজর নাজমুল হক (এপ্রিল–২৮ সেপ্টে.); মেজর কাজী নুরুজ্জামান (১ অক্টো.–১৬ ডিসে.)</td></tr>
+        <tr><td class="sn">৮</td><td>কুষ্টিয়া ও যশোর জেলা; খুলনা, বরিশাল, ফরিদপুর ও পটুয়াখালী জেলার অংশবিশেষ</td><td>কল্যাণী, পশ্চিমবঙ্গ</td><td class="ct">৭টি</td><td>মেজর আবু ওসমান চৌধুরী (এপ্রিল–১৫ আগস্ট); মেজর এম. এ. মঞ্জুর (১৮ আগস্ট–১৬ ডিসে.)</td></tr>
+        <tr><td class="sn">৯</td><td>বরিশাল ও পটুয়াখালী জেলা এবং খুলনা (সুন্দরবনসহ) ও ফরিদপুর জেলার অংশবিশেষ</td><td>টাকি, বসিরহাট, পশ্চিমবঙ্গ</td><td class="ct">৩টি</td><td>মেজর এম. এ. জলিল (এপ্রিল–১৬ ডিসে.)</td></tr>
+        <tr><td class="sn">১০</td><td>সকল নদী ও বঙ্গোপসাগর এবং এর উপকূলীয় অঞ্চল</td><td><span class="sna">নেই</span></td><td class="ct"><span class="sna">নেই</span></td><td>কোনো নিয়মিত সেক্টর কমান্ডার ছিলেন না — প্রধান সেনাপতির নিয়ন্ত্রণে ছিল</td></tr>
+        <tr><td class="sn">১১</td><td>কিশোরগঞ্জ বাদে বৃহত্তর ময়মনসিংহ ও টাঙ্গাইল জেলা এবং সুনামগঞ্জের দক্ষিণাঞ্চল ও কুড়িগ্রামের অংশবিশেষ</td><td>মহেন্দ্রগঞ্জ, মেঘালয়</td><td class="ct">৮টি</td><td>মেজর জিয়াউর রহমান (১০ জুন–১২ আগস্ট); মেজর এম. আবু তাহের (১২ আগস্ট–১৪ নভে.); এম. হামিদুল্লাহ (১৫ নভে.–১৬ ডিসে.)</td></tr>
+        <tr class="tot"><td>মোট</td><td>১১টি সেক্টর</td><td>১০টি সদরদপ্তর</td><td class="ct">৬২টি</td><td>মোট ১৭টি কমান্ডার-মেয়াদ (ব্যক্তি হিসেবে ১৬ জন)</td></tr>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="three" style="margin-top:26px">
+    <div class="box"><h4 style="margin:0 0 8px;font:700 19px var(--serif)">সাব-সেক্টর ৬৪, তালিকায় ৬২ কেন?</h4><p>সেক্টরভিত্তিক গণনায় ১–৯ ও ১১ নম্বর সেক্টরের সাব-সেক্টর মিলে ৬২টি হয়—১০ নম্বর নৌ-সেক্টরের কোনো সাব-সেক্টর ছিল না। বাকি ২টির হিসাব উৎসভেদে ভিন্ন; বহু পাঠ্যবইয়ে দেশের জেলাসংখ্যার সঙ্গে মিলিয়ে মোট ৬৪টি বলা হয়। তাই দুটি সংখ্যাই পাশাপাশি রাখা হলো।</p></div>
+    <div class="box"><h4 style="margin:0 0 8px;font:700 19px var(--serif)">সদরদপ্তর কোথায় ছিল?</h4><p>সদরদপ্তরগুলো প্রায় সবই সীমান্তের কাছাকাছি—এর মধ্যে ১–৪ ও ৭–৯ নম্বর সেক্টরের ঘাঁটি ছিল ভারতের মাটিতে (ত্রিপুরা, আসাম, মেঘালয় ও পশ্চিমবঙ্গ)। নিরাপদ সীমান্ত-ঘাঁটি থেকে প্রশিক্ষণ, রসদ ও চিকিৎসা পরিচালনা করাই ছিল উদ্দেশ্য। ব্যতিক্রম ৫ ও ৬ নম্বর সেক্টর—তাদের সদরদপ্তর ছিল বাংলাদেশের ভেতরেই (বাঁশতলা ও বুড়িমারী)।</p></div>
+    <div class="box"><h4 style="margin:0 0 8px;font:700 19px var(--serif)">কমান্ডার বদল, মেয়াদও বদল</h4><p>মেয়াদ ধরে গুনলে ১১টি সেক্টরে মোট ১৭টি কমান্ডার-মেয়াদ (ব্যক্তি হিসেবে ১৬ জন)—কারণ জিয়াউর রহমান একই সঙ্গে ১ ও ১১ নম্বর সেক্টরের দায়িত্ব পালন করেন। কেউ যুদ্ধে আহত হয়ে সরে গেলে পরবর্তী কমান্ডার দায়িত্ব নেন—যেমন ১১ নম্বরে আবু তাহের আহত হলে হামিদুল্লাহ আসেন।</p></div>
+  </div>
+
+  <div class="tw-note" style="margin-top:22px"><b>১১–১৭ জুলাই ১৯৭১, কলকাতা:</b> মুজিবনগর সরকারের উদ্যোগে সেক্টর কমান্ডারদের এক সম্মেলন হয়। এই সম্মেলনেই ১১টি সেক্টরের সীমানা, সদরদপ্তর ও সাব-সেক্টর কাঠামো পূর্ণাঙ্গ রূপ পায় এবং দায়িত্ব বণ্টন চূড়ান্ত হয়। সম্মেলনে অংশ নেন প্রধান সেনাপতি এম. এ. জি. ওসমানীসহ ঊর্ধ্বতন সামরিক নেতৃত্ব।</div>
+  <p class="note"><b>তথ্যসূত্র:</b> ‘মুক্তিযুদ্ধের সেক্টরসমূহ ও সেক্টর কমান্ডারগণ’ (সেক্টরভিত্তিক তথ্যচিত্র-সংকলন), মুক্তিযুদ্ধ বিষয়ক অভিধান ও প্রকাশিত ইতিহাস-গ্রন্থ; সাব-সেক্টর সংখ্যার পার্থক্যের ব্যাখ্যা উপরের বাক্সে।</p>
 </div></section>
 
 <section id="war"><div class="wrap">
@@ -1631,7 +1672,7 @@ nav .links a.active:hover{background:var(--ink);color:var(--bg)}
 // ৫. ফ্ল্যাশকার্ড ডেটা ও লজিক
 (function(){
   var cards = [
-    ["জাতিসংঘের কততম অধিবেশনে এবং কবে ২১ ফেব্রুয়ারিকে আন্তর্জাতিক মাতৃভাষা দিবস ঘোষণা করা হয়?", "৩০তম অধিবেশনে, ১৭ নভেম্বর ১৯৯৯ সালে (প্যারিসে)।"],
+    ["ইউনেস্কোর কততম সাধারণ সম্মেলনে এবং কবে ২১ ফেব্রুয়ারিকে আন্তর্জাতিক মাতৃভাষা দিবস ঘোষণা করা হয়?", "৩০তম সাধারণ সম্মেলনে, ১৭ নভেম্বর ১৯৯৯ সালে (প্যারিসে)।"],
     ["মুজিবনগর সরকারের অস্থায়ী সচিবালয় কোথায় ছিল?", "কলকাতার ৮ নম্বর থিয়েটার রোডে।"],
     ["মুক্তিযুদ্ধে 'অপারেশন জ্যাকপট' কী এবং কবে পরিচালিত হয়?", "নৌ-কমান্ডোদের পরিচালিত অভিযান; ১৫ আগস্ট ১৯৭১ সালে চট্টগ্রাম, মোংলা, চাঁদপুর ও নারায়ণগঞ্জ বন্দরে পরিচালিত হয়।"],
     ["বাংলাদেশের সংবিধান কবে গণপরিষদে গৃহীত হয় এবং কবে কার্যকর হয়?", "৪ নভেম্বর ১৯৭২ গৃহীত হয় এবং ১৬ ডিসেম্বর ১৯৭২ থেকে কার্যকর হয়।"],
@@ -1704,24 +1745,30 @@ show(0);
 
 // ৭. ১১টি সেক্টরের মানচিত্র ও তথ্য
 var S=[
-  [1,"294,250 318,300 345,400 335,470 310,440 272,370 270,300","313,360","চট্টগ্রাম, কক্সবাজার, পার্বত্য চট্টগ্রাম, ফেনী","মেজর জিয়াউর রহমান (এপ্রিল–জুন); মেজর রফিকুল ইসলাম (জুন–ডিসেম্বর)"],
-  [2,"190,190 230,250 285,240 270,320 210,320 190,270","235,275","ঢাকা, নোয়াখালী, ফরিদপুর ও কুমিল্লার অংশ","মেজর খালেদ মোশাররফ (এপ্রিল–সেপ্টেম্বর); মেজর এ. টি. এম. হায়দার"],
-  [3,"270,170 300,180 285,240 230,250 190,190","260,210","কুমিল্লা, কিশোরগঞ্জ, হবিগঞ্জ ও ঢাকার অংশ","মেজর কে. এম. শফিউল্লাহ; পরে মেজর এ. এন. এম. নুরুজ্জামান"],
-  [4,"290,110 350,110 345,170 300,180 270,170","312,145","সিলেটের পূর্বাঞ্চল","মেজর সি. আর. দত্ত"],
-  [5,"270,50 340,70 350,110 290,110","313,85","সিলেটের পশ্চিমাঞ্চল ও সুনামগঞ্জ","মেজর মীর শওকত আলী"],
-  [6,"60,20 170,15 200,60 180,120 110,130 70,100 50,60","120,70","রংপুর ও ঠাকুরগাঁও","উইং কমান্ডার এম. খাদেমুল বাশার"],
-  [7,"70,100 110,130 180,120 190,190 140,250 70,230 40,170","110,180","রাজশাহী, নাটোর, পাবনা, বগুড়া, দিনাজপুরের দক্ষিণাঞ্চল","মেজর নাজমুল হক; পরে মেজর কাজী নুরুজ্জামান"],
-  [8,"140,250 190,190 190,270 180,330 120,340 90,290","145,290","কুষ্টিয়া, যশোর, খুলনা, ফরিদপুরের অংশ (মুজিবনগর)","মেজর আবু ওসমান চৌধুরী; পরে মেজর এম. এ. মঞ্জুর"],
-  [9,"120,340 180,330 210,320 230,400 180,440 130,430 95,390","160,385","বরিশাল, পটুয়াখালী, খুলনার অংশ (সুন্দরবন)","মেজর এম. এ. জলিল; পরে মেজর জয়নাল আবেদীন"],
-  [10,"","","সমুদ্র উপকূল, নদীপথ ও নৌ-কমান্ডো অভিযান","নিয়মিত ভৌগোলিক কমান্ডার ছিল না; প্রধান সেনাপতির নিয়ন্ত্রণে"],
-  [11,"200,60 270,50 290,110 270,170 190,190 180,120","235,120","ময়মনসিংহ ও টাঙ্গাইল (কিশোরগঞ্জ বাদে)","মেজর জিয়াউর রহমান; মেজর আবু তাহের; ফ্লাইট লে. এম. হামিদুল্লাহ খান"]
+  [1,"294,250 318,300 345,400 335,470 310,440 272,370 270,300","313,360","চট্টগ্রাম, পার্বত্য চট্টগ্রাম ও নোয়াখালীর মুহুরী নদীর পূর্বাংশ","মেজর জিয়াউর রহমান (এপ্রিল–১০ জুন); মেজর রফিকুল ইসলাম (১১ জুন–১৬ ডিসে.)","হরিণা, ত্রিপুরা",5],
+  [2,"190,190 230,250 285,240 270,320 210,320 190,270","235,275","ঢাকা শহর ও জেলার অংশ, নোয়াখালী, ফরিদপুর ও কুমিল্লার অংশবিশেষ","মেজর খালেদ মোশাররফ (এপ্রিল–অক্টো.); মেজর এ. টি. এম. হায়দার (অক্টো.–১৬ ডিসে.)","মেলাঘর, ত্রিপুরা",6],
+  [3,"270,170 300,180 285,240 230,250 190,190","260,210","কুমিল্লা, কিশোরগঞ্জ, হবিগঞ্জ জেলার অংশবিশেষ ও ঢাকা জেলার উত্তরাঞ্চল","মেজর কে. এম. শফিউল্লাহ (এপ্রিল–৩০ সেপ্টে.); মেজর এ. এন. এম. নুরুজ্জামান (১ অক্টো.–১৬ ডিসে.)","কলাগাছিয়া/হেজামারা, ত্রিপুরা",10],
+  [4,"290,110 350,110 345,170 300,180 270,170","312,145","মৌলভীবাজার ও সিলেট জেলার পূর্বাঞ্চল (খোয়াই–শায়েস্তাগঞ্জ রেললাইন থেকে পূর্ব-উত্তর)","মেজর সি. আর. দত্ত (মে–১৬ ডিসে.)","করিমগঞ্জ/মাসিমপুর, আসাম",6],
+  [5,"270,50 340,70 350,110 290,110","313,85","সিলেট জেলার সমগ্র পশ্চিম অঞ্চল (তামাবিল–আজমিরীগঞ্জ অক্ষ) ও সুনামগঞ্জ","মেজর মীর শওকত আলী (আগস্ট–১৬ ডিসে.)","বাঁশতলা, সুনামগঞ্জ",6],
+  [6,"60,20 170,15 200,60 180,120 110,130 70,100 50,60","120,70","বৃহত্তর রংপুর ও বৃহত্তর দিনাজপুর জেলার দক্ষিণাঞ্চলের কিছু অংশ বাদে বাকি অংশ","উইং কমান্ডার এম. খাদেমুল বাশার (জুন–১৬ ডিসে.)","বুড়িমারী, লালমনিরহাট",5],
+  [7,"70,100 110,130 180,120 190,190 140,250 70,230 40,170","110,180","রাজশাহী, পাবনা, বগুড়া ও দিনাজপুর জেলার দক্ষিণাংশ","মেজর নাজমুল হক (এপ্রিল–২৮ সেপ্টে.); মেজর কাজী নুরুজ্জামান (১ অক্টো.–১৬ ডিসে.)","তারাঙ্গাপুর, পশ্চিমবঙ্গ",6],
+  [8,"140,250 190,190 190,270 180,330 120,340 90,290","145,290","কুষ্টিয়া ও যশোর জেলা; খুলনা, বরিশাল, ফরিদপুর ও পটুয়াখালী জেলার অংশবিশেষ","মেজর আবু ওসমান চৌধুরী (এপ্রিল–১৫ আগস্ট); মেজর এম. এ. মঞ্জুর (১৮ আগস্ট–১৬ ডিসে.)","কল্যাণী, পশ্চিমবঙ্গ",7],
+  [9,"120,340 180,330 210,320 230,400 180,440 130,430 95,390","160,385","বরিশাল ও পটুয়াখালী জেলা এবং খুলনা (সুন্দরবনসহ) ও ফরিদপুর জেলার অংশবিশেষ","মেজর এম. এ. জলিল (এপ্রিল–১৬ ডিসে.)","টাকি, বসিরহাট, পশ্চিমবঙ্গ",3],
+  [10,"","","সকল নদী ও বঙ্গোপসাগর এবং এর উপকূলীয় অঞ্চল","কোনো নিয়মিত সেক্টর কমান্ডার ছিলেন না — প্রধান সেনাপতির নিয়ন্ত্রণে ছিল","—",0],
+  [11,"200,60 270,50 290,110 270,170 190,190 180,120","235,120","কিশোরগঞ্জ বাদে বৃহত্তর ময়মনসিংহ ও টাঙ্গাইল জেলা এবং সুনামগঞ্জের দক্ষিণাঞ্চল ও কুড়িগ্রামের অংশবিশেষ","মেজর জিয়াউর রহমান (১০ জুন–১২ আগস্ট); মেজর এম. আবু তাহের (১২ আগস্ট–১৪ নভে.); এম. হামিদুল্লাহ (১৫ নভে.–১৬ ডিসে.)","মহেন্দ্রগঞ্জ, মেঘালয়",8]
 ];
 
 var map=document.getElementById("map"),si=document.getElementById("sinfo"),NS="http://www.w3.org/2000/svg",P=[];
 function sel(n){
   var s=S[n-1];
   P.forEach(function(p){p.classList.toggle("on",+p.dataset.n==n)});
-  si.innerHTML="<h3>সেক্টর "+s[0]+"</h3><p><b>এলাকা:</b> "+s[3]+"</p><p><b>কমান্ডার:</b> "+s[4]+"</p>";
+  var hq=s[5]==="—"?"<span class=\"sna\">নেই</span>":s[5];
+  var ss=s[6]===0?"<span class=\"sna\">নেই</span>":s[6]+"টি";
+  si.innerHTML="<h3>সেক্টর "+s[0]+"</h3>"+
+    "<p><b>এলাকা:</b> "+s[3]+"</p>"+
+    "<div class=\"smeta\"><div><small>সদরদপ্তর</small><b>"+hq+"</b></div><div><small>সাব-সেক্টর</small><b>"+ss+"</b></div></div>"+
+    "<p class=\"scm\"><b>সেক্টর কমান্ডার:</b> "+s[4]+"</p>"+
+    (s[0]===10?"<p class=\"note\">নৌ-কমান্ডোদের অভিযানকালে সংশ্লিষ্ট সেক্টর কমান্ডারের অধীনে কাজ করত; তাই এ সেক্টরের আলাদা সদরদপ্তর বা সাব-সেক্টর ছিল না।</p>":"");
 }
 S.forEach(function(s){
   if(!s[1])return;
@@ -1734,11 +1781,14 @@ S.forEach(function(s){
   t.setAttribute("x",xy[0]);t.setAttribute("y",+xy[1]+6);t.textContent=s[0];map.appendChild(t);
 });
 var c=document.createElementNS(NS,"path");
-c.setAttribute("d","M100 405 Q190 470 340 490");c.setAttribute("class","coast");c.setAttribute("tabindex",0);c.setAttribute("aria-label","সেক্টর ১০");c.style.cursor="pointer";
-c.onclick=function(){sel(10)};map.appendChild(c);
+c.setAttribute("d","M100 405 Q190 470 340 490");c.setAttribute("class","coast");c.setAttribute("tabindex",0);c.setAttribute("aria-label","সেক্টর ১০");c.style.cursor="pointer";c.setAttribute("role","button");
+c.onclick=function(){sel(10)};c.onkeydown=function(e){if(e.key==="Enter"||e.key===" ")sel(10)};map.appendChild(c);
+
 var t10=document.createElementNS(NS,"text");
-t10.setAttribute("x",200);t10.setAttribute("y",490);t10.style.fill="var(--r)";t10.textContent="সেক্টর ১০ (উপকূল)";t10.style.fontSize="14px";map.appendChild(t10);
+t10.setAttribute("x",200);t10.setAttribute("y",506);t10.style.fill="var(--r)";t10.textContent="সেক্টর ১০ (উপকূল)";t10.style.fontSize="14.5px";map.appendChild(t10);
 sel(1);
+var seaBtn=document.getElementById("seaBtn");
+if(seaBtn){seaBtn.onclick=function(){sel(10)};}
 
 // ৮. ইতিহাসভিত্তিক প্রশ্নোত্তর (ক্যাটাগরি, ব্যাখ্যা ও রিসেটসহ)
 // ফরম্যাট: [প্রশ্ন, [অপশনসমূহ], সঠিক_ইনডেক্স, ক্যাটাগরি, ব্যাখ্যা]
@@ -1812,7 +1862,7 @@ var Q=[
   ["বাংলাদেশ কত সালে OIC-এর সদস্যপদ লাভ করে?",["১৯৭৩","১৯৭৪","১৯৭৫","১৯৭৬"],1,"constitution","১৯৭৪ সালের ফেব্রুয়ারিতে লাহোর সম্মেলনে বাংলাদেশ OIC-এর সদস্যপদ লাভ করে।"],
   ["বাংলাদেশ জাতিসংঘের কততম সদস্য?",["১৪৬তম","১৩৬তম","১২৬তম","১১৬তম"],1,"constitution","১৭ সেপ্টেম্বর ১৯৭৪ বাংলাদেশ জাতিসংঘের ১৩৬তম সদস্য হিসেবে অন্তর্ভুক্ত হয়।"],
   ["'তমদ্দুন মজলিশ' কে প্রতিষ্ঠা করেন?",["হাজী শরীয়ত উল্লাহ","শেরে বাংলা এ কে ফজলুল হক","আবুল কাশেম","মাওলানা ভাসানী"],2,"language","ঢাকা বিশ্ববিদ্যালয়ের অধ্যাপক আবুল কাশেম ২ সেপ্টেম্বর ১৯৪৭ তমদ্দুন মজলিশ প্রতিষ্ঠা করেন।"],
-  ["UNESCO কত তারিখে ২১ ফেব্রুয়ারিকে আন্তর্জাতিক মাতৃভাষা দিবস হিসেবে স্বীকৃতি দেয়?",["১৮ নভেম্বর ১৯৯৯","১৭ নভেম্বর ১৯৯৯","১৯ নভেম্বর ২০০১","২০ নভেম্বর ২০০১"],1,"language","১৭ নভেম্বর ১৯৯৯ প্যারিসে ইউনেস্কোর ৩০তম অধিবেশনে এই স্বীকৃতি দেওয়া হয়।"],
+  ["UNESCO কত তারিখে ২১ ফেব্রুয়ারিকে আন্তর্জাতিক মাতৃভাষা দিবস হিসেবে স্বীকৃতি দেয়?",["১৮ নভেম্বর ১৯৯৯","১৭ নভেম্বর ১৯৯৯","১৯ নভেম্বর ২০০১","২০ নভেম্বর ২০০১"],1,"language","১৭ নভেম্বর ১৯৯৯ প্যারিসে ইউনেস্কোর ৩০তম সাধারণ সম্মেলনে এই স্বীকৃতি দেওয়া হয়।"],
   ["সর্বদলীয় কেন্দ্রীয় রাষ্ট্রভাষা সংগ্রাম পরিষদ গঠিত হয় কবে?",["৩১ জানুয়ারি ১৯৫২","২ ফেব্রুয়ারি ১৯৫২","১৮ ফেব্রুয়ারি ১৯৫২","২০ জানুয়ারি ১৯৫২"],0,"language","মওলানা ভাসানীর সভাপতিত্বে ৩১ জানুয়ারি ১৯৫২ সর্বদলীয় কেন্দ্রীয় রাষ্ট্রভাষা সংগ্রাম পরিষদ গঠিত হয়।"],
   ["পাকিস্তানের গণপরিষদের অধিবেশনে বাংলাকে রাষ্ট্রভাষা করার প্রথম দাবি কে উত্থাপন করেন?",["আব্দুল মতিন","ধীরেন্দ্রনাথ দত্ত","শেরে বাংলা এ. কে. ফজলুল হক","হোসেন শহীদ সোহরাওয়ার্দী"],1,"language","কুমিল্লার ধীরেন্দ্রনাথ দত্ত ১৯৪৮ সালের ২৩ ফেব্রুয়ারি গণপরিষদে এই দাবি উত্থাপন করেন।"],
   ["কেন্দ্রীয় শহীদ মিনারের স্থপতি কে?",["তানভীর কবীর","হামিদুর রহমান","হামিদুজ্জামান","অস্কার বাদল"],1,"culture","শিল্পী হামিদুর রহমান ও ভাস্কর নভেরা আহমদ কেন্দ্রীয় শহীদ মিনারের মূল নকশাকার।"],
@@ -1977,11 +2027,11 @@ var io=new IntersectionObserver(function(a){a.forEach(function(x){if(x.isInterse
     ["১৯৭০ সালের নির্বাচনে আওয়ামী লীগ প্রাদেশিক পরিষদে কতটি আসন পায়?",
      ["১৬৭টি","১৬৯টি","২৯৮টি","৩১০টি"], 2,
      "<b>১৬৭</b> ছিল <b>জাতীয় পরিষদে</b> (মোট ১৬৯টির মধ্যে); <b>২৯৮</b> ছিল <b>প্রাদেশিক পরিষদে</b> (মোট ৩১০টির মধ্যে)। দুই পরিষদের সংখ্যা পরীক্ষায় সবচেয়ে বেশি গুলিয়ে যায়।"],
-    ["মুক্তিযুদ্ধে একমাত্র বীর বিক্রম খেতাবপ্রাপ্ত কে?",
+    ["মুক্তিযুদ্ধে একমাত্র আদিবাসী বীর বিক্রম খেতাবপ্রাপ্ত কে?",
      ["ডব্লিউ. এ. এস. ওডারল্যান্ড","ইউ কে চিং মারমা","ক্যাপ্টেন ডা. সেতারা বেগম","শহীদুল ইসলাম লালু"], 1,
-     "\"একমাত্র\" শব্দটা বিভ্রান্ত করে। <b>ইউ কে চিং মারমা</b> (৬নং সেক্টর) একমাত্র <b>বীর বিক্রম</b> — জাতিগতভাবে মারমা। <b>ওডারল্যান্ড</b> ছিলেন একমাত্র বিদেশি <b>বীর প্রতীক</b>; সেতারা বেগম নারী বীর প্রতীক। তিনটা আলাদা তথ্য।"],
+     "<b>ইউ কে চিং মারমা</b> (৬নং সেক্টর, ইপিআর) একমাত্র আদিবাসী <b>বীর বিক্রম</b> — জাতিগতভাবে মারমা। মোট বীর বিক্রম ১৭৫ জন, তাই ‘একমাত্র’ মানে এখানে ‘একমাত্র আদিবাসী’। <b>ওডারল্যান্ড</b> ছিলেন একমাত্র বিদেশি <b>বীর প্রতীক</b>; সেতারা বেগম নারী বীর প্রতীক। তিনটা আলাদা তথ্য।"],
     ["মুক্তিযুদ্ধে সর্বোচ্চ সংখ্যক বীর প্রতীক খেতাব কোন বাহিনী পায়?",
-     ["সেনাবাহিনী","বিজিবি/ইপিআর","পুলিশ","গণবাহিনী"], 0,
+     ["সেনাবাহিনী","বিজিবি/ইপিআর","পুলিশ","গণবাহিনী"], 3,
      "<b>বীর প্রতীক</b> মোট ৪২৬ জনের মধ্যে সেনাবাহিনী ১৫৭, <b>গণবাহিনী ১৬৬</b> — অর্থাৎ গণবাহিনীই সর্বোচ্চ। কিন্তু \"বীর বিক্রম\"-এ সেনাবাহিনীই (৮৮ জন) প্রথম। প্রশ্নে কোন খেতাব চাওয়া হয়েছে সেটাই মূল।"],
     ["বীরশ্রেষ্ঠদের মধ্যে সর্বকনিষ্ঠ শহিদ কে?",
      ["মহিউদ্দিন জাহাঙ্গীর","মুন্সী আব্দুর রউফ","হামিদুর রহমান","রুহুল আমিন"], 2,
@@ -2074,11 +2124,11 @@ var io=new IntersectionObserver(function(a){a.forEach(function(x){if(x.isInterse
 (function(){
   var BANK=[
     ["মুজিবনগর সরকারের প্রধানমন্ত্রী কে ছিলেন?",["তাজউদ্দীন আহমদ","সৈয়দ নজরুল ইসলাম","এ. এইচ. এম. কামরুজ্জামান","ক্যাপ্টেন এম. মনসুর আলী"],0],
-    ["মুক্তিযুদ্ধের সর্বাধিনায়ক কে ছিলেন?",["জেনারেল এম. এ. জি. ওসমানী","মেজর জিয়াউর রহমান","মেজর খালেদ মোশাররফ","জেনারেল মোস্তাফিজুর রহমান"],0],
+    ["মুক্তিযুদ্ধের সর্বাধিনায়ক কে ছিলেন?",["বঙ্গবন্ধু শেখ মুজিবুর রহমান","জেনারেল এম. এ. জি. ওসমানী","মেজর জিয়াউর রহমান","মেজর খালেদ মোশাররফ"],0],
     ["শহীদ বুদ্ধিজীবী দিবস কবে?",["১৪ ডিসেম্বর","১৬ ডিসেম্বর","২১ ফেব্রুয়ারি","২৫ মার্চ"],0],
     ["১৯৭০ সালের নির্বাচন কত সালে অনুষ্ঠিত হয়?",["১৯৭০ সালের ৭ ডিসেম্বর","১৯৭১ সালের ৭ মার্চ","১৯৭০ সালের ৫ ডিসেম্বর","১৯৭১ সালের ৩ জানুয়ারি"],0],
     ["প্রথম শহীদ মিনার কোথায় নির্মিত হয়?",["ঢাকা মেডিকেল কলেজ","ঢাকা বিশ্ববিদ্যালয়","কার্জন হল","পল্টন ময়দান"],0],
-    ["বীরশ্রেষ্ঠরের সংখ্যা কত?",["৭ জন","৬ জন","৯ জন","১১ জন"],0],
+    ["বীরশ্রেষ্ঠের সংখ্যা কত?",["৭ জন","৬ জন","৯ জন","১১ জন"],0],
     ["'অপারেশন সার্চলাইট' কী?",["২৫ মার্চের গণহত্যার পরিকল্পনা","নৌ অভিযান","ভারতীয় সেনা অভিযান","বিমান হামলা"],0],
     ["মুজিবনগর কোথায় অবস্থিত?",["মেহেরপুর","কুষ্টিয়া","চুয়াডাঙ্গা","যশোর"],0],
     ["স্বাধীন বাংলা বেতার কেন্দ্র প্রথম কোথা থেকে সম্প্রচার শুরু করে?",["চট্টগ্রামে","কলকাতায়","আগরতলায়","ঢাকায়"],0],
@@ -2223,5 +2273,5 @@ var io=new IntersectionObserver(function(a){a.forEach(function(x){if(x.isInterse
 </script>
 
 <script>(function(){var d=document.getElementById("timeline");function o(){if(location.hash==="#timeline"){d.open=true;setTimeout(function(){d.scrollIntoView()},30)}}window.addEventListener("hashchange",o);o()})();</script>
-<script>(function(){try{var __q=new URLSearchParams(location.search);if(__q.get("toast")==="off")return;if(!__q.get("toast")&&!window.matchMedia("(max-width: 820px)").matches)return;var t=document.createElement("div");t.id="pcToast";t.setAttribute("role","status");t.textContent="For better experience, open on a PC";document.body.appendChild(t);setTimeout(function(){t.classList.add("show")},300);setTimeout(function(){t.classList.remove("show");setTimeout(function(){t.remove()},420)},3000)}catch(e){}})();</script><script>(function(){var box=document.getElementById("menuLinks");if(!box||!("IntersectionObserver" in window))return;var m={};box.querySelectorAll("a").forEach(function(a){m[a.getAttribute("href").slice(1)]=a});var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var a=m[e.target.id];if(!a)return;box.querySelectorAll("a.active").forEach(function(x){x.classList.remove("active")});a.classList.add("active");box.scrollTo({left:a.offsetLeft-box.clientWidth/2+a.clientWidth/2,behavior:"smooth"})})},{rootMargin:"-25% 0px -65% 0px"});document.querySelectorAll("main section[id]").forEach(function(x){io.observe(x)})})();</script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a609df38c89bcd66',t:'MTc5NTcwNjM3MQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a609df38c89bcd66',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){try{var __q=new URLSearchParams(location.search);if(__q.get("toast")==="off")return;if(!__q.get("toast")&&!window.matchMedia("(max-width: 820px)").matches)return;var t=document.createElement("div");t.id="pcToast";t.setAttribute("role","status");t.textContent="For better experience, open on a PC";document.body.appendChild(t);setTimeout(function(){t.classList.add("show")},300);setTimeout(function(){t.classList.remove("show");setTimeout(function(){t.remove()},420)},3000)}catch(e){}})();</script><script>(function(){var box=document.getElementById("menuLinks");if(!box||!("IntersectionObserver" in window))return;var m={};box.querySelectorAll("a").forEach(function(a){m[a.getAttribute("href").slice(1)]=a});var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var a=m[e.target.id];if(!a)return;box.querySelectorAll("a.active").forEach(function(x){x.classList.remove("active")});a.classList.add("active");box.scrollTo({left:a.offsetLeft-box.clientWidth/2+a.clientWidth/2,behavior:"smooth"})})},{rootMargin:"-25% 0px -65% 0px"});document.querySelectorAll("main section[id]").forEach(function(x){io.observe(x)})})();</script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a60a1ec0f999c869',t:'MTc5NTcwODk3NA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a60a1ec0f999c869',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
