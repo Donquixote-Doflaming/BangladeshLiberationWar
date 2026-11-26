@@ -33,7 +33,7 @@ nav{display:flex;flex-wrap:wrap;align-items:center;padding-top:10px;gap:8px}
 
 /* গ্লোবাল সার্চ */
 .global-search-wrap{position:relative;margin-bottom:10px}
-.global-search{padding:6px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:14px var(--sans);width:210px;transition:.2s}
+.global-search{padding:7px 15px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:14px var(--sans);width:240px;transition:.2s}
 .global-search:focus{border-color:var(--ink);width:250px;outline:0}
 .search-results{position:absolute;top:110%;right:0;width:320px;max-height:360px;overflow-y:auto;background:var(--card);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 16px 40px rgba(0,0,0,.15);display:none;z-index:50;padding:8px}
 .search-results.show{display:block}
@@ -151,7 +151,42 @@ footer{padding:clamp(44px,7vw,86px) 0 46px;color:var(--mut);font-size:14.5px;bor
 .rv{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
 @media(max-width:860px){.hero{grid-template-columns:1fr}.flag{max-width:240px;order:-1}.three,.two,.det,.mapbox{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.quiz-bar{top:62px}.global-search{width:150px}.global-search:focus{width:180px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
-.tl .sub{margin:8px 0 0;padding-left:22px;list-style:disc}.tl .sub li{padding:0 0 4px;position:static}.tl .sub li:before{display:none}.tl .sub b{color:var(--ink)}details.more>summary{display:inline-block;cursor:pointer;list-style:none;font:600 15px var(--sans);padding:12px 26px;border:1.5px solid var(--ink);border-radius:999px;margin-top:34px;transition:.2s}details.more>summary::-webkit-details-marker{display:none}details.more>summary:hover,details.more[open]>summary{background:var(--ink);color:var(--bg)}details.more[open]>summary{margin-bottom:6px}::view-transition-old(root),::view-transition-new(root){animation-duration:.7s;animation-timing-function:cubic-bezier(.4,0,.2,1)}html.theme-anim *:not(.rv),html.theme-anim *:not(.rv)::before,html.theme-anim *:not(.rv)::after{transition:background-color .6s ease,color .6s ease,border-color .6s ease,fill .6s ease,stroke .6s ease,box-shadow .6s ease!important}</style>
+.tl .sub{margin:8px 0 0;padding-left:22px;list-style:disc}.tl .sub li{padding:0 0 4px;position:static}.tl .sub li:before{display:none}.tl .sub b{color:var(--ink)}details.more>summary{display:inline-block;cursor:pointer;list-style:none;font:600 15px var(--sans);padding:12px 26px;border:1.5px solid var(--ink);border-radius:999px;margin-top:34px;transition:.2s}details.more>summary::-webkit-details-marker{display:none}details.more>summary:hover,details.more[open]>summary{background:var(--ink);color:var(--bg)}details.more[open]>summary{margin-bottom:6px}::view-transition-old(root),::view-transition-new(root){animation-duration:.7s;animation-timing-function:cubic-bezier(.4,0,.2,1)}html.theme-anim *:not(.rv),html.theme-anim *:not(.rv)::before,html.theme-anim *:not(.rv)::after{transition:background-color .6s ease,color .6s ease,border-color .6s ease,fill .6s ease,stroke .6s ease,box-shadow .6s ease!important}#pcToast{position:fixed;left:50%;top:50%;bottom:auto;transform:translate(-50%,-46%) scale(.96);z-index:200;max-width:calc(100vw - 44px);background:#c9302a;color:#fff;font:600 12.5px/1.45 var(--sans);letter-spacing:.01em;padding:9px 18px;border-radius:999px;box-shadow:0 14px 34px rgba(0,0,0,.30);opacity:0;pointer-events:none;transition:opacity .35s ease,transform .35s cubic-bezier(.2,.8,.2,1);text-align:center;white-space:nowrap}
+#pcToast.show{opacity:1;transform:translate(-50%,-50%) scale(1)}html{scroll-padding-top:88px}.quiz-bar{top:82px!important}
+/* ===== মেনু সিস্টেম: গ্রুপকৃত ড্রপডাউন প্যানেল ===== */
+nav{position:relative;flex-wrap:nowrap;gap:12px;padding-top:12px;padding-bottom:12px;min-height:64px}
+#menuBtn{display:inline-flex;align-items:center;gap:7px;margin-bottom:0;line-height:1;flex:none;white-space:nowrap;min-width:112px;justify-content:center;position:relative;z-index:80}
+#menuBtn .m-ico{position:relative;display:inline-flex;width:14px;height:14px;flex:none}
+#menuBtn .m-ico b{position:absolute;inset:0;display:grid;place-items:center;font-size:14px;font-weight:600;line-height:1;transition:opacity .18s,transform .18s}
+#menuBtn .m-ico b.m-x{opacity:0;transform:rotate(-90deg)}
+#menuBtn[aria-expanded=true] .m-ico b.m-bars{opacity:0;transform:rotate(90deg)}
+#menuBtn[aria-expanded=true] .m-ico b.m-x{opacity:1;transform:none}
+#themeBtn{margin-bottom:0;flex:none}
+nav .global-search-wrap{margin-bottom:0;order:2;flex:none}
+nav .logo{padding-bottom:0;margin-right:auto}
+nav .links{position:absolute;left:0;right:0;top:calc(100% - 4px);display:none;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 34px;background:var(--card);border:1.5px solid var(--line);border-radius:22px;box-shadow:0 30px 70px rgba(0,0,0,.20);padding:20px 24px 24px;max-height:min(74vh,620px);overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;z-index:70}
+nav.open .links{display:grid;animation:mDrop .28s cubic-bezier(.2,.8,.2,1) both}
+@keyframes mDrop{from{opacity:0;transform:translateY(-8px)}}
+.nav-group{display:flex;flex-direction:column;align-items:stretch}
+.nav-group-title{font:600 10.5px/1.6 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--r);padding:6px 10px 8px;border-bottom:1px solid var(--line);margin-bottom:6px}
+nav .links a{display:block;flex:none;font-size:14px;line-height:1.55;color:var(--ink);padding:6px 10px;border-radius:9px;border:1px solid transparent;text-decoration:none;transition:background .15s,color .15s;white-space:normal}
+nav .links a:hover{background:var(--soft);border-color:transparent;color:var(--ink)}
+nav .links a.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+nav .links a.active:hover{background:var(--ink);color:var(--bg)}
+.menu-backdrop{position:fixed;inset:0;background:rgba(10,12,10,.28);backdrop-filter:blur(2px);z-index:19;display:none}
+.menu-backdrop.show{display:block}
+@media(max-width:1020px){nav .links{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 26px}}
+@media(max-width:760px){
+  nav{flex-wrap:wrap;gap:8px;row-gap:10px;padding-top:10px;padding-bottom:10px}
+  nav .logo{margin-right:auto}
+  nav .global-search-wrap{order:3;flex:1 1 100%;margin-bottom:2px}
+  nav .global-search{width:100%}
+  nav .global-search:focus{width:100%}
+  .search-results{width:100%;right:auto;left:0}
+  nav .links{grid-template-columns:1fr;gap:6px;padding:16px;border-radius:18px;max-height:72vh;top:calc(100% + 2px)}
+  nav .links a{font-size:13.5px;padding:7px 8px}
+}
+@media(max-width:480px){nav .links{max-height:70vh;padding:14px 14px}.nav-group-title{font-size:9.5px;letter-spacing:.08em}nav .links a{font-size:13.5px;padding:7px 8px}}</style>
 </head>
 <body>
 
@@ -159,54 +194,82 @@ footer{padding:clamp(44px,7vw,86px) 0 46px;color:var(--mut);font-size:14.5px;bor
 
 <header><div class="wrap"><nav>
   <a class="logo" href="#top"><span class="dot"><i></i></span>একাত্তর</a>
-  
+
+  <button class="theme-btn" id="menuBtn" aria-expanded="false" aria-controls="menuLinks" aria-label="বিষয়সূচি মেনু"><span class="m-ico" aria-hidden="true"><b class="m-bars">☰</b><b class="m-x">✕</b></span><span class="m-label">বিষয়সূচি</span></button>
+
   <div class="global-search-wrap">
     <input type="search" class="global-search" id="globalSearch" placeholder="আর্কাইভে খুঁজুন..." aria-label="আর্কাইভে তথ্য খুঁজুন">
     <div class="search-results" id="searchResults"></div>
   </div>
 
+  <button class="theme-btn" id="themeBtn" aria-label="রঙ পরিবর্তন" title="ক্লিকে লাইট/ডার্ক · E চেপে ৯টি মোড">🌓 থিম</button>
+
   <div class="links" id="menuLinks">
-    <a href="#krom">ঘটনার ক্রম</a>
-    <a href="#pre1971">১৯৪৭–৭০</a>
-    <a href="#partition">দেশভাগ</a>
-    <a href="#inequality">বৈষম্য</a>
-    <a href="#language-movement">ভাষা আন্দোলন</a>
-    <a href="#united-front">যুক্তফ্রন্ট</a>
-    <a href="#one-unit-constitution">এক ইউনিট ও সংবিধান</a>
-    <a href="#martial-law">সামরিক শাসন</a>
-    <a href="#education-1962">শিক্ষা আন্দোলন</a>
-    <a href="#war-1965">১৯৬৫ যুদ্ধ</a>
-    <a href="#six-point">ছয় দফা</a>
-    <a href="#agartala">আগরতলা মামলা</a>
-    <a href="#mass-uprising">গণ-অভ্যুত্থান</a>
-    <a href="#election-1970">১৯৭০ নির্বাচন</a>
-    <a href="#noncooperation-1971">অসহযোগ ও আলোচনা</a>
-    <a href="#march7-speech">৭ মার্চের ভাষণ</a>
-    <a href="#march25-independence">২৫ মার্চ ও স্বাধীনতা</a>
-    <a href="#betar">বেতার</a>
-    <a href="#leaders">মুজিবনগর সরকার</a>
-    <a href="#sectors">সেক্টর</a>
-    <a href="#war">যুদ্ধ ও অভিযান</a>
-    <a href="#intellectuals">বুদ্ধিজীবী হত্যা</a>
-    <a href="#collaborators">দেশবিরোধী চক্র</a>
-    <a href="#surrender">আত্মসমর্পণ ও বিজয়</a>
-    <a href="#refugees-diaspora">শরণার্থী ও প্রবাসী</a>
-    <a href="#documents">ঐতিহাসিক দলিল</a>
-    <a href="#birsreshtho">বীরশ্রেষ্ঠ</a>
-    <a href="#world">বিশ্ব</a>
-    <a href="#recog">স্বীকৃতি</a>
-    <a href="#constitution">সংবিধান</a>
-    <a href="#awards">খেতাব</a>
-    <a href="#monuments">স্মৃতিসৌধ</a>
-    <a href="#lang">ভাষা-সাহিত্য</a>
-    <a href="#lit">সাহিত্য</a>
-    <a href="#film">চলচ্চিত্র</a>
-    <a href="#flashcards">ফ্ল্যাশকার্ড</a>
-    <a href="#quiz">প্রশ্নোত্তর</a>
+    <div class="nav-group">
+      <div class="nav-group-title">১৯৪৭–১৯৭০ · ভাগ ১</div>
+      <a href="#krom">ঘটনার ক্রম</a>
+      <a href="#pre1971">১৯৪৭–৭০</a>
+      <a href="#partition">দেশভাগ</a>
+      <a href="#inequality">বৈষম্য</a>
+      <a href="#language-movement">ভাষা আন্দোলন</a>
+      <a href="#united-front">যুক্তফ্রন্ট</a>
+      <a href="#one-unit-constitution">এক ইউনিট ও সংবিধান</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-title">১৯৪৭–১৯৭০ · ভাগ ২</div>
+      <a href="#martial-law">সামরিক শাসন</a>
+      <a href="#education-1962">শিক্ষা আন্দোলন</a>
+      <a href="#war-1965">১৯৬৫ যুদ্ধ</a>
+      <a href="#six-point">ছয় দফা</a>
+      <a href="#agartala">আগরতলা মামলা</a>
+      <a href="#mass-uprising">গণ-অভ্যুত্থান</a>
+      <a href="#election-1970">১৯৭০ নির্বাচন</a>
+      <a href="#noncooperation-1971">অসহযোগ ও আলোচনা</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-title">১৯৭১ · মুক্তিযুদ্ধ</div>
+      <a href="#march7-speech">৭ মার্চের ভাষণ</a>
+      <a href="#march25-independence">২৫ মার্চ ও স্বাধীনতা</a>
+      <a href="#betar">বেতার</a>
+      <a href="#leaders">মুজিবনগর সরকার</a>
+      <a href="#sectors">সেক্টর</a>
+      <a href="#war">যুদ্ধ ও অভিযান</a>
+      <a href="#guerrilla">গেরিলা বাহিনী</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-title">১৯৭১ · অভিযান ও বিজয়</div>
+      <a href="#navy">নৌ অভিযান</a>
+      <a href="#airforce">বিমান বাহিনী</a>
+      <a href="#killing-fields">বধ্যভূমি</a>
+      <a href="#intellectuals">বুদ্ধিজীবী হত্যা</a>
+      <a href="#collaborators">দেশবিরোধী চক্র</a>
+      <a href="#surrender">আত্মসমর্পণ ও বিজয়</a>
+      <a href="#refugees-diaspora">শরণার্থী ও প্রবাসী</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-title">দলিল · মানুষ · বিশ্ব</div>
+      <a href="#documents">ঐতিহাসিক দলিল</a>
+      <a href="#birsreshtho">বীরশ্রেষ্ঠ</a>
+      <a href="#women">নারী মুক্তিযোদ্ধা</a>
+      <a href="#world">বিশ্ব</a>
+      <a href="#postwar">যুদ্ধের পরে</a>
+      <a href="#recog">স্বীকৃতি</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-title">সংবিধান · সংস্কৃতি · অনুশীলন</div>
+      <a href="#constitution">সংবিধান</a>
+      <a href="#awards">খেতাব</a>
+      <a href="#monuments">স্মৃতিসৌধ</a>
+      <a href="#lang">ভাষা-সাহিত্য</a>
+      <a href="#lit">সাহিত্য</a>
+      <a href="#film">চলচ্চিত্র</a>
+      <a href="#flashcards">ফ্ল্যাশকার্ড</a>
+      <a href="#quiz">প্রশ্নোত্তর</a>
+    </div>
   </div>
-  <button class="theme-btn" id="menuBtn" aria-expanded="false" aria-controls="menuLinks">☰ মেনু</button>
-  <button class="theme-btn" id="themeBtn" aria-label="রঙ পরিবর্তন" title="ক্লিকে লাইট/ডার্ক · E চেপে ৯টি মুড">🌓 থিম</button>
+  </div>
 </nav></div></header>
+<div class="menu-backdrop" id="menuBackdrop" aria-hidden="true"></div>
 
 <main id="top">
 <div class="wrap hero">
@@ -802,6 +865,34 @@ footer{padding:clamp(44px,7vw,86px) 0 46px;color:var(--mut);font-size:14.5px;bor
 </div></section>
 
 <!-- নতুন অধ্যায় ১: বুদ্ধিজীবী হত্যা -->
+<section id="guerrilla"><div class="wrap">
+  <h2>গেরিলা বাহিনী ও বিশেষ অপারেশন</h2>
+  <p class="lead">নিয়মিত বাহিনীর পাশাপাশি বিভিন্ন এলাকায় স্বতন্ত্র গেরিলা দল ও বিশেষ কমান্ডো দল যুদ্ধ করে।</p>
+  <div class="three"><div class="box"><h3>কাদেরিয়া বাহিনী</h3><p>টাঙ্গাইলে ১৯ এপ্রিল ১৯৭১ গঠিত; নেতা আবদুল কাদের সিদ্দিকী (বাঘা সিদ্দিকী, বীর উত্তম)। ভারতে না গিয়ে দেশের ভেতরেই থেকে যুদ্ধ করে। ১০ আগস্ট জাহাজমারায় পাকিস্তানি জাহাজে হামলা চালায়; ১১ ডিসেম্বর যৌথ অভিযানে টাঙ্গাইল মুক্ত হয়। সদস্যসংখ্যা সূত্রভেদে ১৭ হাজার থেকে ৫০ হাজার।</p></div><div class="box"><h3>মুজিব বাহিনী (বিএলএফ)</h3><p>আওয়ামী লীগ ও ছাত্রলীগের নেতাকর্মীদের নিয়ে ভারতের সহায়তায় গঠিত বাংলাদেশ লিবারেশন ফোর্স। যুদ্ধে এর ভূমিকা নিয়ে মতভেদ আছে। যুদ্ধের পর এটি জাতীয় রক্ষীবাহিনীতে একীভূত হয়।</p></div><div class="box"><h3>ক্র্যাক প্লাটুন</h3><p>ঢাকায় গেরিলা অভিযানের জন্য বিশেষ কমান্ডো দল। মেলাঘর ক্যাম্প থেকে ৪ জুন ১৯৭১ ঢাকার উদ্দেশে রওনা হয়ে ৫ জুন থেকে অভিযান শুরু করে। নেতা মফিজল হোসেন চৌধুরী (মায়া)। বিদ্যুৎকেন্দ্র, সামরিক স্থাপনা ও যোগাযোগব্যবস্থায় আঘাত হেনে ঢাকাবাসীর মনোবল বাড়ায়।</p></div></div><p class="note" style="margin-top:14px">বাংলাপিডিয়া অনুযায়ী অন্য উল্লেখযোগ্য বাহিনী: লতিফ মির্জা (সিরাজগঞ্জ), আকবর হোসেন (ঝিনাইদহ), হেমায়েত (ফরিদপুর), কুদ্দুস মোল্লা ও গাফফার (বরিশাল), আফসার ও আফতাব (ময়মনসিংহ)।</p>
+  <p class="note">সূত্র: বাংলাপিডিয়া, ডেইলি স্টার, ফাইন্যান্সিয়াল এক্সপ্রেস, নিউ এজ</p>
+</div></section>
+
+<section id="navy"><div class="wrap">
+  <h2>নৌ-কমান্ডো ও নৌ অভিযান</h2>
+  <p class="lead">বাঙালি নৌ-সদস্য ও পাকিস্তান থেকে পালিয়ে আসা সাবমেরিনাররা ভারতের সহায়তায় প্রশিক্ষণ নিয়ে সমুদ্র ও নদীবন্দরে আঘাত হানেন।</p>
+  <div class="scroll"><table><tr><th>বিষয়</th><th>বিবরণ</th></tr><tr><td>প্রশিক্ষণ</td><td>১৯৭১ সালের মে মাসে শুরু; পলাশীর আমবাগানে (ভারত) প্রায় দুই মাসের প্রশিক্ষণ।</td></tr><tr><td>অপারেশন জ্যাকপট</td><td>১৫ আগস্ট ১৯৭১ গভীর রাতে (অনেক সূত্রে ১৬ আগস্ট) চট্টগ্রাম, মোংলা, চাঁদপুর ও নারায়ণগঞ্জ বন্দরে একযোগে লিমপেট মাইন হামলা। এটি নৌ-কমান্ডোদের প্রথম বড় অভিযান।</td></tr><tr><td>ক্ষয়ক্ষতি</td><td>বাংলাপিডিয়া অনুযায়ী ২৬টি জাহাজ ডুবে যায়; অভিযানপ্রধান কমোডর আবদুল ওয়াহেদ চৌধুরী ৪৫টির কথা বলেন। আগস্ট–ডিসেম্বরে মোট প্রায় ১২৬টি জাহাজ/নৌযান ডুবে বা ক্ষতিগ্রস্ত হয় বলে একটি সূত্র জানায়।</td></tr><tr><td>বিএনএস পদ্মা ও পলাশ</td><td>কলকাতার গার্ডেন রিচে পাইলট বোট রূপান্তর করে তৈরি দুটি গানবোট; ৩০ অক্টোবর ১৯৭১ মুক্তিবাহিনীর হাতে তুলে দেওয়া হয়। নভেম্বরে সুন্দরবন এলাকায় মাইন বসানোর অভিযানে অংশ নেয়।</td></tr></table></div>
+  <p class="note">সূত্র: বাংলাপিডিয়া, বাংলাদেশ নৌবাহিনীর ওয়েবসাইট, ডেইলি স্টার, দ্য বিজনেস স্ট্যান্ডার্ড</p>
+</div></section>
+
+<section id="airforce"><div class="wrap">
+  <h2>বিমান বাহিনী ও কিলো ফ্লাইট</h2>
+  <p class="lead">যুদ্ধের মাঝামাঝি সময়ে ভারতের সহায়তায় গঠিত ছোট বিমান ইউনিট ‘কিলো ফ্লাইট’ই বাংলাদেশ বিমান বাহিনীর সূচনা।</p>
+  <ul class="tl"><li><b>২৮ সেপ্টেম্বর ১৯৭১</b> নাগাল্যান্ডের ডিমাপুরে ভারতীয় বিমান বাহিনীর প্রধান পি. সি. লাল ও গ্রুপ ক্যাপ্টেন এ. কে. খন্দকারের উপস্থিতিতে ইউনিটের উদ্বোধন; এটি বিমান বাহিনী দিবস।</li><li><b>বিমান ও জনবল</b> একটি ওটার বিমান, একটি অ্যালুয়েট হেলিকপ্টার ও একটি ডাকোটা; সদস্য ৫৭ জন (পাকিস্তান বিমান বাহিনী ও পিআইএ থেকে আসা)। অধিনায়ক ফ্লাইট লেফটেন্যান্ট সুলতান মাহমুদ।</li><li><b>৩–৪ ডিসেম্বর ১৯৭১</b> ত্রিপুরার কৈলাসহর থেকে রাতে উড়ে চট্টগ্রাম ও নারায়ণগঞ্জের তেল ডিপোতে প্রথম হামলা।</li><li><b>১৬ ডিসেম্বর পর্যন্ত</b> অভিযানসংখ্যা সূত্রভেদে ভিন্ন: আইএসপিআর ৫০টির বেশি বোমা হামলার কথা বলে, উইকিপিডিয়া মোট ৯০টি সর্টি ও প্রায় ৪০টি যুদ্ধ মিশনের কথা বলে।</li></ul>
+  <p class="note">সূত্র: ডেইলি স্টার, ডেকান হেরাল্ড, ঢাকা ট্রিবিউন, ফাইন্যান্সিয়াল এক্সপ্রেস</p>
+</div></section>
+
+<section id="killing-fields"><div class="wrap">
+  <h2>গণহত্যার স্থান ও বধ্যভূমি</h2>
+  <p class="lead">সারা দেশে ছড়িয়ে থাকা বধ্যভূমি ও গণকবর ১৯৭১-এর গণহত্যার সাক্ষ্য বহন করে। এখানে কয়েকটি প্রধান স্থান দেওয়া হলো; সংখ্যাগুলো সূত্রভেদে ভিন্ন হতে পারে।</p>
+  <div class="scroll"><table><tr><th>স্থান</th><th>তারিখ/সময়</th><th>বিবরণ</th></tr><tr><td>চুকনগর, ডুমুরিয়া (খুলনা)</td><td>২০ মে ১৯৭১</td><td>ভারতে যাওয়ার অপেক্ষায় জড়ো হওয়া হাজার হাজার শরণার্থীর ওপর সকাল ১১টা থেকে বিকেল পর্যন্ত গুলি চালানো হয়। নিহতের সংখ্যা প্রায় ১০ হাজার বলা হয় (কোথাও ৮–১০ হাজার)। একদিনে সবচেয়ে বড় গণহত্যাগুলোর একটি; ২০ মে ‘চুকনগর গণহত্যা দিবস’।</td></tr><tr><td>ডাকরা (খুলনা)</td><td>২১ মে ১৯৭১</td><td>চুকনগরের পরদিন সংঘটিত; তালিকাভুক্ত অনুমানে নিহত দুই হাজারের বেশি।</td></tr><tr><td>জল্লাদখানা, মিরপুর (ঢাকা)</td><td>মার্চ–ডিসেম্বর ১৯৭১</td><td>সরকারি প্রকাশনায় এখানে ২০–২৫ হাজার মানুষকে হত্যা করে কবর দেওয়ার কথা বলা হয়েছে।</td></tr><tr><td>রায়েরবাজার, মোহাম্মদপুর ও মিরপুর (ঢাকা)</td><td>বিশেষত ১৪ ডিসেম্বর ১৯৭১</td><td>শহীদ বুদ্ধিজীবীদের হত্যার প্রধান স্থান; বিস্তারিত নিচের বুদ্ধিজীবী সেকশনে।</td></tr></table></div><p class="note" style="margin-top:14px">সরকারি পুস্তিকা অনুযায়ী সারা দেশে ৯৪২টি বধ্যভূমি পাওয়া গেছে। মোট নিহতের সংখ্যা সরকারিভাবে ৩০ লাখ বলা হয়; গবেষকদের অনুমান আরও কম থেকে ৩০ লাখ পর্যন্ত বিস্তৃত, তাই সংখ্যাটি আলোচিত বিষয়।</p>
+  <p class="note">সূত্র: ডেইলি স্টার, ঢাকা ট্রিবিউন, দ্য বিজনেস স্ট্যান্ডার্ড; পররাষ্ট্র মন্ত্রণালয়ের ‘Recognising the 1971 Bangladesh Genocide’ পুস্তিকা</p>
+</div></section>
+
 <section id="intellectuals"><div class="wrap">
   <h2>শহীদ বুদ্ধিজীবী হত্যাকাণ্ড ও বধ্যভূমি (১৪ ডিসেম্বর)</h2>
   <p class="lead">পরাজয় নিশ্চিত জেনে বাঙালি জাতিকে মেধাশূন্য করার নীলনকশা অনুযায়ী পাকিস্তানি হানাদার বাহিনী ও তাদের এদেশীয় দোসর আল-বদর বাহিনী দেশের শ্রেষ্ঠ সন্তানদের নির্মমভাবে হত্যা করে।</p>
@@ -913,6 +1004,13 @@ footer{padding:clamp(44px,7vw,86px) 0 46px;color:var(--mut);font-size:14.5px;bor
   <div class="det" id="det" aria-live="polite"></div>
 </div></section>
 
+<section id="women"><div class="wrap">
+  <h2>নারী মুক্তিযোদ্ধা ও বীরাঙ্গনা</h2>
+  <p class="lead">নারীরা যোদ্ধা, চিকিৎসক, গোয়েন্দা ও আশ্রয়দাতা হিসেবে যুদ্ধে অংশ নেন; অনেকে নির্যাতনেরও শিকার হন।</p>
+  <div class="three"><div class="box"><h3>ক্যাপ্টেন ডা. সেতারা বেগম</h3><p>জন্ম কলকাতায়, ১৯৪৫। ২ নম্বর সেক্টরের অধীন ভিশ্রামগঞ্জের বাংলাদেশ হাসপাতালের অধিনায়ক; নারী নার্স ও সেবিকাদের প্রশিক্ষণ দেন। ১৯৭৩ সালের গেজেটে বীর প্রতীক।</p></div><div class="box"><h3>তারামন বিবি</h3><p>কুড়িগ্রামের রৌমারী; ১১ নম্বর সেক্টরে (সেক্টর কমান্ডার আবু তাহের) ১৩–১৪ বছর বয়সে যুদ্ধে অংশ নেন। ১৯৭৩ সালের গেজেটে বীর প্রতীক; ১৯৯৫ সালে এক গবেষক তাঁকে খুঁজে পান। মৃত্যু ১ ডিসেম্বর ২০১৮।</p></div><div class="box"><h3>কাঁকন বিবি</h3><p>খাসি পরিবারের কাঁকাত হেনিনচিতা। তথ্য সংগ্রহ ও গেরিলা সহায়তায় ভূমিকা রাখেন। ১৯৯৬ সালে বীর প্রতীক স্বীকৃতি পান বলে কিছু সূত্র জানায়, তবে ১৯৭৩-এর গেজেটে নারী বীর প্রতীক দুজন। মৃত্যু মার্চ ২০১৮।</p></div></div><p class="note" style="margin-top:14px">যুদ্ধের সময় নির্যাতিত নারীদের সরকার ‘বীরাঙ্গনা’ উপাধি দেয়। সরকারি প্রকাশনায় নির্যাতিত নারীর সংখ্যা ২–৪ লাখ বলা হয়েছে। এ ছাড়া আশালতা বৈদ্য ছিলেন নারী মুক্তিযোদ্ধাদের একটি দলের কমান্ডার।</p>
+  <p class="note">সূত্র: ডেইলি স্টার, ইউএনবি, ফাইন্যান্সিয়াল এক্সপ্রেস; পররাষ্ট্র মন্ত্রণালয়ের পুস্তিকা</p>
+</div></section>
+
 <section id="world"><div class="wrap">
   <h2>বিশ্বের সমর্থন, বৃহৎ শক্তি ও স্নায়ুযুদ্ধের রাজনীতি</h2>
   <p class="lead">১৯৭১-এর মুক্তিযুদ্ধকে শুধু দুই শক্তি-ব্লকের সরল সংঘাত হিসেবে দেখা যায় না: রাষ্ট্রের সরকারি নীতি, জনগণের মত, সংবাদমাধ্যম, মানবিক সংস্থা ও কূটনীতির অবস্থান অনেক ক্ষেত্রেই আলাদা ছিল।</p>
@@ -931,6 +1029,13 @@ footer{padding:clamp(44px,7vw,86px) 0 46px;color:var(--mut);font-size:14.5px;bor
     <div class="box gr"><h3>বিদেশি বন্ধু ও মানবিক সহায়তা</h3><p><b>ডব্লিউ. এ. এস. ওডারল্যান্ড:</b> নেদারল্যান্ডসে জন্মগ্রহণকারী অস্ট্রেলীয় নাগরিক (বীর প্রতীক)। <b>ফাদার মারিও ভেরেনজি:</b> ইতালীয় ধর্মযাজক (৪ এপ্রিল যশোরে শহিদ)। <b>জুলিয়ান ফ্রান্সিস:</b> অক্সফামের ত্রাণ সমন্বয়ক ('Testimony of Sixty' প্রকাশক)। <b>আর্চার কে. ব্লাড:</b> মার্কিন কনসাল জেনারেল ('ব্লাড টেলিগ্রাম')। <b>অ্যালেন গিন্সবার্গ:</b> মার্কিন কবি ('September on Jessore Road')।</p></div>
     <div class="box rd"><h3>মুক্তিযুদ্ধ জাদুঘর ও সম্মাননা</h3><p><b>মুক্তিযুদ্ধ জাদুঘর:</b> ২২ মার্চ ১৯৯৬ সেগুনবাগিচায় যাত্রা শুরু; বর্তমানে আগারগাঁওয়ে অবস্থিত। <b>বাংলাদেশ স্বাধীনতা সম্মাননা:</b> ভারতের সাবেক প্রধানমন্ত্রী ইন্দিরা গান্ধীকে (মরণোত্তর) প্রদান করা হয়।</p></div>
   </div>
+</div></section>
+
+<section id="postwar"><div class="wrap">
+  <h2>যুদ্ধের পরে: ১৯৭২-এর শুরু</h2>
+  <p class="lead">বিজয়ের পর নতুন দেশের প্রথম কয়েক মাস।</p>
+  <ul class="tl"><li><b>৮–১০ জানুয়ারি ১৯৭২</b> পাকিস্তানের বন্দিদশা থেকে মুক্ত বঙ্গবন্ধু লন্ডন ও দিল্লি হয়ে ১০ জানুয়ারি ঢাকায় ফেরেন; রেসকোর্স ময়দানে বিশাল জনসভায় ভাষণ দেন।</li><li><b>১২ জানুয়ারি ১৯৭২</b> বঙ্গবন্ধু প্রধানমন্ত্রী হিসেবে শপথ নেন; আবু সাঈদ চৌধুরী রাষ্ট্রপতি হন।</li><li><b>৬–৮ ফেব্রুয়ারি ১৯৭২</b> বঙ্গবন্ধুর কলকাতা সফর; ভারতীয় বাহিনী প্রত্যাহারের সময়সূচি নিয়ে যৌথ বিবৃতি।</li><li><b>মার্চ ১৯৭২</b> ১২ মার্চ ঢাকা স্টেডিয়ামে বিদায়ী কুচকাওয়াজের মধ্য দিয়ে ভারতীয় সেনা প্রত্যাহার শুরু; ১৭ মার্চ ইন্দিরা গান্ধী ঢাকায় জনসভায় ভাষণ দেন এবং ২৫ বছর মেয়াদি মৈত্রী চুক্তি স্বাক্ষরিত হয়। প্রত্যাহার সম্পন্নের তারিখ সূত্রভেদে মার্চের মাঝামাঝি থেকে শেষ ভাগ।</li></ul>
+  <p class="note">সূত্র: ডেইলি স্টার, ঢাকা ট্রিবিউন, প্রথম আলো</p>
 </div></section>
 
 <section id="recog"><div class="wrap">
@@ -988,7 +1093,7 @@ footer{padding:clamp(44px,7vw,86px) 0 46px;color:var(--mut);font-size:14.5px;bor
     <tr><td>বীর বিক্রম</td><td>১৭৫</td><td>১৭৪</td><td>সেনা ৮৮, নৌ ৮, বিমান ১, বিজিবি/ইপিআর ৩২, পুলিশ ২, গণবাহিনী ৪৩ (নূর চৌধুরীর খেতাব বাতিল)</td></tr>
     <tr><td>বীর প্রতীক</td><td>৪২৬</td><td>৪২৪</td><td>সেনা ১৫৭, নৌ ৭, বিমান ১৫, বিজিবি/ইপিআর ৭৬, পুলিশ ৩, গণবাহিনী ১৬৬ (রাশেদ চৌধুরী ও মোসলেম উদ্দীনের বাতিল)</td></tr>
   </table></div>
-  <p class="lead" style="margin-top:18px"><b>বিশেষ তথ্য:</b> নারী বীর প্রতীক ২ জন— ক্যাপ্টেন ডা. সেতারা বেগম (২নং সেক্টর) ও তারামন বিবি (১১নং সেক্টর)। খেতাবহীন বীর নারী মুক্তিযোদ্ধা— কাঁকন বিবি (আসল নাম কাঁকাত হেনিনচিতা, 'মুক্তিবেটি' নামে পরিচিত)। ১৬ সেপ্টেম্বর ২০১৫ সরকার বীরাঙ্গনাদের মুক্তিযোদ্ধার স্বীকৃতি দেয়। একমাত্র বীর বিক্রম— ইউ কে চিং মারমা (৬নং সেক্টর, ইপিআর)। একমাত্র বিদেশি বীর প্রতীক— ডব্লিউ. এ. এস. ওডারল্যান্ড (অস্ট্রেলীয় নাগরিক)। সর্বকনিষ্ঠ খেতাবপ্রাপ্ত মুক্তিযোদ্ধা— শহীদুল ইসলাম লালু (বীর প্রতীক, ১১নং সেক্টর, ১২/১৩ বছর)।</p>
+  <p class="lead" style="margin-top:18px"><b>বিশেষ তথ্য:</b> নারী বীর প্রতীক ২ জন— ক্যাপ্টেন ডা. সেতারা বেগম (২নং সেক্টর) ও তারামন বিবি (১১নং সেক্টর)। কাঁকন বিবি (১৯৭৩-এর গেজেটে নাম নেই; ১৯৯৬ সালে বীর প্রতীক স্বীকৃতি পান বলে কিছু সূত্রে আছে) — (আসল নাম কাঁকাত হেনিনচিতা, 'মুক্তিবেটি' নামে পরিচিত)। ১৬ সেপ্টেম্বর ২০১৫ সরকার বীরাঙ্গনাদের মুক্তিযোদ্ধার স্বীকৃতি দেয়। একমাত্র বীর বিক্রম— ইউ কে চিং মারমা (৬নং সেক্টর, ইপিআর)। একমাত্র বিদেশি বীর প্রতীক— ডব্লিউ. এ. এস. ওডারল্যান্ড (অস্ট্রেলীয় নাগরিক)। সর্বকনিষ্ঠ খেতাবপ্রাপ্ত মুক্তিযোদ্ধা— শহীদুল ইসলাম লালু (বীর প্রতীক, ১১নং সেক্টর, ১২/১৩ বছর)।</p>
 </div></section>
 
 <section id="monuments"><div class="wrap">
@@ -1587,8 +1692,44 @@ document.querySelectorAll("#quizCats button").forEach(function(btn){
 renderQuiz();
 </script>
 
-<script>(function(){var n=document.querySelector('nav'),mb=document.getElementById('menuBtn');mb.addEventListener('click',function(){var o=n.classList.toggle('open');mb.setAttribute('aria-expanded',o);mb.textContent=o?'✕ বন্ধ':'☰ মেনু'});n.querySelectorAll('.links a').forEach(function(a){a.addEventListener('click',function(){n.classList.remove('open');mb.setAttribute('aria-expanded',false);mb.textContent='☰ মেনু'})});})();(function(){var els=document.querySelectorAll("section h2,section .lead,.box,.det,.tl,.scroll,.mapbox,.stats,.cta,.qz,.doc-box,.flashcard-wrap,#footerCredit");els.forEach(function(e){e.classList.add("rv")});
+<script>/* বিষয়সূচি মেনু: খোলা/বন্ধ, ব্যাকড্রপ, Esc, বাইরে ক্লিক, সক্রিয় লিঙ্ক */
+(function(){
+  var n=document.querySelector('nav'),mb=document.getElementById('menuBtn'),bd=document.getElementById('menuBackdrop');
+  if(!n||!mb) return;
+  var labelEl=mb.querySelector('.m-label'), labelText=labelEl?labelEl.textContent:'বিষয়সূচি';
+  function setOpen(o){
+    n.classList.toggle('open',o);
+    mb.setAttribute('aria-expanded',o);
+    if(labelEl) labelEl.textContent=o?'বন্ধ':labelText;
+    if(bd) bd.classList.toggle('show',o);
+    document.documentElement.style.overflow=o?'hidden':'';
+  }
+  mb.addEventListener('click',function(){ setOpen(!n.classList.contains('open')); });
+  if(bd) bd.addEventListener('click',function(){ setOpen(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') setOpen(false); });
+  n.querySelectorAll('.links a').forEach(function(a){ a.addEventListener('click',function(){ setOpen(false); }); });
+  /* মোবাইলে লেখা খুঁজতে গেলে মেনু বন্ধ হয়ে যাবে */
+  var gi=document.getElementById('globalSearch');
+  if(gi) gi.addEventListener('focus',function(){ setOpen(false); });
+})();
+/* চলমান অধ্যায় অনুযায়ী মেনুতে active হাইলাইট */
+(function(){
+  var box=document.getElementById('menuLinks');
+  if(!box||!('IntersectionObserver' in window)) return;
+  var m={};
+  box.querySelectorAll('a').forEach(function(a){ var h=a.getAttribute('href'); if(h&&h.length>1) m[h.slice(1)]=a; });
+  if(!Object.keys(m).length) return;
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var a=m[e.target.id]; if(!a) return;
+      box.querySelectorAll('a.active').forEach(function(x){ x.classList.remove('active'); });
+      a.classList.add('active');
+    });
+  },{rootMargin:'-20% 0px -70% 0px'});
+  document.querySelectorAll('main section[id]').forEach(function(x){ io.observe(x); });
+})();(function(){var els=document.querySelectorAll("section h2,section .lead,.box,.det,.tl,.scroll,.mapbox,.stats,.cta,.qz,.doc-box,.flashcard-wrap,#footerCredit");els.forEach(function(e){e.classList.add("rv")});
 if(!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("in")});return}
 var io=new IntersectionObserver(function(a){a.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{rootMargin:"0px 0px -6% 0px"});els.forEach(function(e){io.observe(e)})})();</script><script>(function(){var d=document.getElementById("timeline");function o(){if(location.hash==="#timeline"){d.open=true;setTimeout(function(){d.scrollIntoView()},30)}}window.addEventListener("hashchange",o);o()})();</script>
-<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a601ed45ab234e14',t:'MTc5NTYyMzA2MQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a601ed45ab234e14',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a601ed45ab234e14',t:'MTc5NTYyMzA2MQ=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a601ed45ab234e14',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><script>(function(){try{var __q=new URLSearchParams(location.search);if(__q.get("toast")==="off")return;if(!__q.get("toast")&&!window.matchMedia("(max-width: 820px)").matches)return;var t=document.createElement("div");t.id="pcToast";t.setAttribute("role","status");t.textContent="For better experience, open on a PC";document.body.appendChild(t);setTimeout(function(){t.classList.add("show")},300);setTimeout(function(){t.classList.remove("show");setTimeout(function(){t.remove()},420)},3000)}catch(e){}})();</script><script>(function(){var box=document.getElementById("menuLinks");if(!box||!("IntersectionObserver" in window))return;var m={};box.querySelectorAll("a").forEach(function(a){m[a.getAttribute("href").slice(1)]=a});var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var a=m[e.target.id];if(!a)return;box.querySelectorAll("a.active").forEach(function(x){x.classList.remove("active")});a.classList.add("active");box.scrollTo({left:a.offsetLeft-box.clientWidth/2+a.clientWidth/2,behavior:"smooth"})})},{rootMargin:"-25% 0px -65% 0px"});document.querySelectorAll("main section[id]").forEach(function(x){io.observe(x)})})();</script></body>
 </html>
